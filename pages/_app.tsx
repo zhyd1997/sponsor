@@ -13,6 +13,8 @@ import {
 } from 'wagmi';
 import { infuraProvider } from 'wagmi/providers/infura';
 import { publicProvider } from 'wagmi/providers/public';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const { chains, provider } = configureChains(
   [
@@ -40,10 +42,19 @@ const wagmiClient = createClient({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />
+        <ThemeProvider theme={darkTheme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   )
