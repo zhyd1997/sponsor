@@ -79,6 +79,9 @@ export default function Home() {
         component="form"
         sx={{
           '& .MuiTextField-root': { m: 1, width: '32ch' },
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
         }}
         noValidate
         autoComplete="off"
@@ -105,7 +108,7 @@ export default function Home() {
         <Button
           variant="contained"
           endIcon={<SendIcon />}
-          disabled={isLoading}
+          disabled={!recipient || !amount || isLoading}
           onClick={sponsor}
         >
           Send
