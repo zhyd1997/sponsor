@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^0.7.4",
     "@types/node": "18.11.9",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
+    "ethers": "^5.7.2",
     "next": "13.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "wagmi": "^0.7.10"
   }
 }
