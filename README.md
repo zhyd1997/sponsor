@@ -18,3 +18,13 @@ pnpm run dev
 ```
 
 ## Usage
+
+### Want get sponsored?
+
+1. add `FUNDING.yml` in your github repo.
+
+2. add `https://sponsor-zhyd1997.vercel.app/<your wallet address>` at `custom` field.
+
+### Want to sponsor others?
+
+3. click `Sponsor` button at github repo page (if the user set `FUNDING.yml` file) to start.
