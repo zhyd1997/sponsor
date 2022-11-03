@@ -21,7 +21,7 @@ const { chains, provider } = configureChains(
   [
     chain.polygon,
     chain.optimism,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [chain.goerli] : []),
+    chain.goerli,
   ],
   [
     infuraProvider({
