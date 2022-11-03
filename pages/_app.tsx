@@ -15,6 +15,7 @@ import { infuraProvider } from 'wagmi/providers/infura';
 import { publicProvider } from 'wagmi/providers/public';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { Analytics } from '@vercel/analytics/react';
 
 const { chains, provider } = configureChains(
   [
@@ -54,6 +55,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
           <Component {...pageProps} />
+          <Analytics />
         </ThemeProvider>
       </RainbowKitProvider>
     </WagmiConfig>
