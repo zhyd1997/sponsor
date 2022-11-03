@@ -25,7 +25,7 @@ const { chains, provider } = configureChains(
   ],
   [
     infuraProvider({
-      apiKey: process.env.INFURA_API_KEY,
+      apiKey: process.env.NEXT_PUBLIC_INFURA_API_KEY,
     }),
     publicProvider(),
   ],
