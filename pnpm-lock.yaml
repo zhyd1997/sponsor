@@ -15,6 +15,7 @@ specifiers:
   next: 13.0.1
   react: 18.2.0
   react-dom: 18.2.0
+  react-toastify: ^9.1.1
   typescript: 4.8.4
   wagmi: ^0.7.10
 
@@ -33,6 +34,7 @@ dependencies:
   next: 13.0.1_qtpcxnaaarbm4ws7ughq6oxfve
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
   typescript: 4.8.4
   wagmi: 0.7.10_jm2wau4petvxjlyhjh6i7qhf3y
 
@@ -8545,6 +8547,17 @@ packages:
       invariant: 2.2.4
       react: 18.2.0
       tslib: 2.4.1
+    dev: false
+
+  /react-toastify/9.1.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      clsx: 1.2.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y:
