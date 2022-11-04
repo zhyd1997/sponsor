@@ -154,7 +154,25 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
        </Alert>
        )}
         <br/>
-        {chain && provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} />)}
+        {
+          (chain && chain.testnet) ? 
+            (provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} /> )) :
+            (
+            <p>
+              No enough <b>DAIx</b>?
+              <br />
+              Wrapp some <b>DAI</b> on the&nbsp;
+              <a
+                href="https://app.superfluid.finance/wrap?upgrade"
+                target="_blank"
+                style={{ background: "white", padding: "8px", borderRadius: "8px" }}
+              >
+                Superfluid
+              </a>
+              &nbsp;page and then back.
+            </p>
+          )
+        }
         </Box>
       </div>
       <ToastContainer
