@@ -15,8 +15,8 @@ import { useAccount, useNetwork, useProvider, useSigner } from 'wagmi'
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
-import { Alert } from "../Alert";
-import { sfNetwork } from '../../utils/network';
+import { Alert } from "@/components/Alert";
+import { sfNetwork } from '@/utils/network';
 
 type SponsorProps = {
   /** receipient address */
