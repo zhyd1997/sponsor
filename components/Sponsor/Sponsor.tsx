@@ -37,8 +37,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
     const { value } = evt.target;
     if (
       typeof Number(value) !== 'number' ||
-      isNaN(Number(value)) ||
-      Number(value) === 0
+      isNaN(Number(value))
     ) {
       return;
     }
@@ -115,7 +114,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
             <TextField
               required
               id="outlined-required"
-              label="(f)DAIx / month"
+              label={`${chain?.testnet ? "fDAIx" : "DAIx"} / month`}
               placeholder="0"
               value={amount}
               onChange={onChange}
