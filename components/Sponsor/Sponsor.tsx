@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import { ChangeEvent, useState, FC, forwardRef } from 'react';
+import { ChangeEvent, useState, FC } from 'react';
 
 import { utils } from "ethers";
 
@@ -14,14 +14,8 @@ import { useAccount, useNetwork, useProvider, useSigner } from 'wagmi'
 
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
-const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref,
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import { Alert } from "../Alert";
 
 type SponsorProps = {
   /** receipient address */
