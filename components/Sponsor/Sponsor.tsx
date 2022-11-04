@@ -30,6 +30,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
   const [recipient, setRecipient] = useState(addr.trim());
   const [amount, setAmount] = useState('');
 
@@ -71,6 +72,11 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         receiver = utils.getAddress(recipient);
       }
 
+      if (receiver === sender) {
+        setError("Uhh, you can not sponsor yourself, try another wallet address!");
+        return;
+      }
+
       const sf = await createSfFramework(provider, chain.id);
 
       const superTokenCls = await sf.loadSuperToken(paymentToken);
@@ -94,9 +100,9 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
       setIsSuccess(false);
       console.error(e);
       toast.error(e?.error?.reason ?? e?.reason ?? e?.message?.split(" (")[0]?.split(" [")[0]);
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   }
 
   return (
@@ -120,7 +126,12 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
               id="outlined-required"
               label="Wallet Address"
               value={recipient}
-              onChange={(evt) => { setRecipient(evt.target.value.trim()) }}
+              onChange={(evt) => {
+                setError("");
+                setRecipient(evt.target.value.trim())
+              }}
+              error={error !== ""}
+              helperText={error}
             />
           </div>
           <div>
@@ -136,7 +147,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           <Button
             variant="contained"
             endIcon={<SendIcon />}
-            disabled={!recipient || !amount || isLoading}
+            disabled={!recipient || !amount || isLoading || error !== ""}
             onClick={sponsor}
           >
             Send
