@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { ChangeEvent, useState, FC } from 'react';
 
-import { utils } from "ethers";
+import { ethers, utils } from "ethers";
 
 import { Framework } from "@superfluid-finance/sdk-core";
 
@@ -31,7 +31,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [recipient, setRecipient] = useState(addr);
+  const [recipient, setRecipient] = useState(addr.trim());
   const [amount, setAmount] = useState('');
 
   const onChange = (evt: ChangeEvent<HTMLInputElement>) => {
@@ -57,7 +57,20 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
       const monthlyAmount = utils.parseEther(amount);
       const flowRate = monthlyAmount.div(60 * 60 * 24 * 30).toString();
 
-      const receiver = utils.getAddress(recipient);
+      let receiver;
+
+      if (recipient.endsWith(".eth")) {
+        toast.info("Resolving ENS name...");
+        const infuraProvider = new ethers.providers.InfuraProvider();
+        receiver = await infuraProvider.resolveName(recipient);
+        if (!receiver) {
+          throw new Error("can not find valid address of associated ENS name!");
+        } else {
+          toast.success(`Associated wallet address is ${receiver}`);
+        }
+      } else {
+        receiver = utils.getAddress(recipient);
+      }
 
       const sf = await Framework.create({
         chainId: chain.id,
@@ -74,7 +87,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         superToken,
       });
 
-      toast.info("Waiting User Confirm!");
+      toast.info("Waiting for user operations...");
       await createFlowOperation.exec(signer);
       toast.success(`Sponsor successfully!`);
       setIsSuccess(true);

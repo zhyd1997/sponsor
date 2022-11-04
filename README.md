@@ -23,7 +23,7 @@ pnpm run dev
 
 1. add `FUNDING.yml` in your github repo.
 
-2. add `https://sponsor-zhyd1997.vercel.app/<your wallet address>` at `custom` field.
+2. add `https://sponsor-zhyd1997.vercel.app/<your wallet address / *.eth>` at `custom` field.
 
 ### Want to sponsor others?
 
