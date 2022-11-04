@@ -144,7 +144,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
             <p>
               No enough <b>DAIx</b>?
               <br />
-              Wrapp some <b>DAI</b> on the&nbsp;
+              Wrap some <b>DAI</b> on the&nbsp;
               <a
                 href="https://app.superfluid.finance/wrap?upgrade"
                 target="_blank"
