@@ -80,11 +80,14 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
       const superTokenCls = await sf.loadSuperToken(paymentToken)
       const superToken = superTokenCls.address;
 
+      const userData = utils.defaultAbiCoder.encode(['string'], ['zhyd1997.eth']);
+
       const createFlowOperation = sf.cfaV1.createFlow({
         flowRate,
         sender,
         receiver,
         superToken,
+        userData,
       });
 
       toast.info("Waiting for user operations...");
