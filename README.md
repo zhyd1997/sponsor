@@ -6,7 +6,7 @@ Sponsor github users but using crypto and streaming per seconds.
 
 Powered by [Superfluid](https://superfluid.finance).
 
-![Screenshot](https://ik.imagekit.io/1winv85cn8g/Sponsor/demo.png)
+![Screenshot](https://ik.imagekit.io/1winv85cn8g/Sponsor/demo_v2_4K6m5jgWc.png)
 
 ## Development
 ```shell
