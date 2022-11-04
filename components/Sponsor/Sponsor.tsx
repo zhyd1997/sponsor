@@ -93,7 +93,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
     } catch (e: any) {
       setIsSuccess(false);
       console.error(e);
-      toast.error(`Error: ${e?.message?.split(" (")[0]?.split(" [")[0]}!`);
+      toast.error(e?.reason ?? e?.message?.split(" (")[0]?.split(" [")[0]);
     }
 
     setIsLoading(false);
