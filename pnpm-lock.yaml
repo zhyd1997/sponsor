@@ -4,6 +4,7 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
   '@mui/icons-material': ^5.10.9
+  '@mui/lab': 5.0.0-alpha.106
   '@mui/material': ^5.10.12
   '@rainbow-me/rainbowkit': ^0.7.4
   '@superfluid-finance/sdk-core': ^0.5.7
@@ -24,6 +25,7 @@ dependencies:
   '@emotion/react': 11.10.5_5ihuxrpe4zse4p4tf6ubxcyzuu
   '@emotion/styled': 11.10.5_z7x6wqqd37fzu777gq3gq2bxru
   '@mui/icons-material': 5.10.9_5n7l3nqogz2ltkpvtlyqobxizm
+  '@mui/lab': 5.0.0-alpha.106_tlfynpmadj7vbqapzbw2b6d6kq
   '@mui/material': 5.10.12_gs4twfomdgooimayvnfrqgiwam
   '@rainbow-me/rainbowkit': 0.7.4_ktlj7svo5lxxo62o3jmhxlzopu
   '@superfluid-finance/sdk-core': 0.5.7_ah5tld5acdfmxt6vxye532e2rq
@@ -2077,6 +2079,40 @@ packages:
       '@mui/material': 5.10.12_gs4twfomdgooimayvnfrqgiwam
       '@types/react': 18.0.24
       react: 18.2.0
+    dev: false
+
+  /@mui/lab/5.0.0-alpha.106_tlfynpmadj7vbqapzbw2b6d6kq:
+    resolution: {integrity: sha512-B2dI9Af8Wt0PCE2QffDOaA8QAYJgMrtpPn/PhBB7KZUbGqlhfqzVyeZAUyyCeKKyuJ4Jf8ZtmMHFABgcoekYIA==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@emotion/react': ^11.5.0
+      '@emotion/styled': ^11.3.0
+      '@mui/material': ^5.0.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@emotion/react':
+        optional: true
+      '@emotion/styled':
+        optional: true
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.1
+      '@emotion/react': 11.10.5_5ihuxrpe4zse4p4tf6ubxcyzuu
+      '@emotion/styled': 11.10.5_z7x6wqqd37fzu777gq3gq2bxru
+      '@mui/base': 5.0.0-alpha.104_knhnagtyfncgg2hpin7s37uixq
+      '@mui/material': 5.10.12_gs4twfomdgooimayvnfrqgiwam
+      '@mui/system': 5.10.12_3ccit3vaizg4wqqen3724viway
+      '@mui/types': 7.2.0_@types+react@18.0.24
+      '@mui/utils': 5.10.9_react@18.2.0
+      '@types/react': 18.0.24
+      clsx: 1.2.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-is: 18.2.0
     dev: false
 
   /@mui/material/5.10.12_gs4twfomdgooimayvnfrqgiwam:

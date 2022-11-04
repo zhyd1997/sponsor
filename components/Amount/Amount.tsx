@@ -1,12 +1,11 @@
 import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
 import TextField from '@mui/material/TextField';
-import type { Chain } from 'wagmi';
+
+import type { ChainT } from "@/types/index";
 
 type AmountProps = {
   /** chain */
-  chain:  Chain & {
-    unsupported?: boolean;
-  };
+  chain: ChainT;
   /** amount */
   amount: string;
   setAmount: Dispatch<SetStateAction<string>>;

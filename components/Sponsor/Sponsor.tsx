@@ -1,6 +1,7 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 import Box from '@mui/material/Box';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { useState, FC } from 'react';
@@ -20,6 +21,9 @@ import { createSfFramework, sfNetwork } from '@/utils/network';
 import { Faucet } from '@/components/Faucet';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
+const TransactionHashLink = dynamic(
+  () => import("@/components/TransactionHashLink").then((mod) => mod.TransactionHashLink)
+);
 
 type SponsorProps = {
   /** receipient address */
@@ -37,6 +41,8 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
   const [error, setError] = useState("");
   const [recipient, setRecipient] = useState(addr.trim());
   const [amount, setAmount] = useState('');
+
+  const [txnHash, setTxnHash] = useState("");
 
   const sponsor = async () => {
     if (!chain || !sender || !signer) {
@@ -86,8 +92,10 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
       });
 
       toast.info("Waiting for user's operations...");
-      await createFlowOperation.exec(signer);
+      const res = await createFlowOperation.exec(signer);
+      const txn = await res.wait();
       toast.success(`Sponsor successfully!`);
+      setTxnHash(txn.transactionHash);
       setIsSuccess(true);
     } catch (e: any) {
       setIsSuccess(false);
@@ -115,25 +123,33 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         >
           <Recipient recipient={recipient} error={error} setRecipient={setRecipient} setError={setError} />
           {chain && (<Amount chain={chain} amount={amount} setAmount={setAmount} />)}
-          <Button
-            variant="contained"
-            endIcon={<SendIcon />}
-            disabled={!recipient || !amount || isLoading || error !== ""}
-            onClick={sponsor}
-          >
-            Send
-        </Button>
+          {isLoading ? (
+            <LoadingButton variant="contained" loading>
+              Send
+            </LoadingButton>
+          ) : (
+            <Button
+              variant="contained"
+              endIcon={<SendIcon />}
+              disabled={!recipient || !amount || error !== ""}
+              onClick={sponsor}
+            >
+              Send
+            </Button>
+          )}
         <br />
        {chain && isSuccess && (
          <Alert severity="success">
-          Check it out at&nbsp;
-          <a
-            href={`https://console.superfluid.finance/${sfNetwork[chain.network]}/accounts/${sender}?tab=streams`}
-            target="_blank"
-          >
-            Superfluid Console
-          </a>.
-       </Alert>
+            Check it out at&nbsp;
+            <a
+              href={`https://console.superfluid.finance/${sfNetwork[chain.network]}/accounts/${sender}?tab=streams`}
+              target="_blank"
+            >
+              Superfluid Console
+            </a>
+            <br />
+            <TransactionHashLink chain={chain} txnHash={txnHash} />
+        </Alert>
        )}
         <br/>
         {
