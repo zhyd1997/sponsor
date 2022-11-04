@@ -16,6 +16,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 import { Alert } from "../Alert";
+import { sfNetwork } from '../../utils/network';
 
 type SponsorProps = {
   /** receipient address */
@@ -129,10 +130,13 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
             Send
         </Button>
         <br />
-       {isSuccess && (
+       {chain && isSuccess && (
          <Alert severity="success">
           Check it out at&nbsp;
-          <a href={`https://console.superfluid.finance/${chain?.name}/accounts/${sender}?tab=streams`}>
+          <a
+            href={`https://console.superfluid.finance/${sfNetwork[chain.network]}/accounts/${sender}?tab=streams`}
+            target="_blank"
+          >
             Superfluid Console
           </a>.
        </Alert>
