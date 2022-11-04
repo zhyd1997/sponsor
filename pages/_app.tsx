@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
+import { Meta } from "@/components/Meta";
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
@@ -50,6 +51,8 @@ export default function App({ Component, pageProps }: AppProps) {
   });
 
   return (
+    <>
+    <Meta />
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <ThemeProvider theme={darkTheme}>
@@ -59,5 +62,6 @@ export default function App({ Component, pageProps }: AppProps) {
         </ThemeProvider>
       </RainbowKitProvider>
     </WagmiConfig>
+    </>
   )
 }
