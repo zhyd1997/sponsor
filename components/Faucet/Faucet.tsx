@@ -28,7 +28,7 @@ export const Faucet: FC<FaucetProps> = ({ provider, signer, chainId }) => {
       await faucetContract.connect(signer).tapFaucet();
       toast.success("Claimed successfully!");
     } catch (e: any) {
-      toast.error(e?.message?.split(" (")[0]?.split(" [")[0]);
+      toast.error(e?.reason ?? e?.message?.split(" (")[0]?.split(" [")[0]);
       console.error(e);
     }
 
