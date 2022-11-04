@@ -1,10 +1,9 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import { ChangeEvent, useState, FC } from 'react';
+import { useState, FC } from 'react';
 
 import { ethers, utils } from "ethers";
 
@@ -13,9 +12,14 @@ import { useAccount, useNetwork, useProvider, useSigner } from 'wagmi'
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
+import dynamic from "next/dynamic";
+
+import { Recipient } from "@/components/Recipient";
 import { Alert } from "@/components/Alert";
 import { createSfFramework, sfNetwork } from '@/utils/network';
 import { Faucet } from '@/components/Faucet';
+
+const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 
 type SponsorProps = {
   /** receipient address */
@@ -33,17 +37,6 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
   const [error, setError] = useState("");
   const [recipient, setRecipient] = useState(addr.trim());
   const [amount, setAmount] = useState('');
-
-  const onChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    const { value } = evt.target;
-    if (
-      typeof Number(value) !== 'number' ||
-      isNaN(Number(value))
-    ) {
-      return;
-    }
-    setAmount(value);
-  }
 
   const sponsor = async () => {
     if (!chain || !sender || !signer) {
@@ -120,30 +113,8 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           noValidate
           autoComplete="off"
         >
-          <div>
-            <TextField
-              required
-              id="outlined-required"
-              label="Wallet Address"
-              value={recipient}
-              onChange={(evt) => {
-                setError("");
-                setRecipient(evt.target.value.trim())
-              }}
-              error={error !== ""}
-              helperText={error}
-            />
-          </div>
-          <div>
-            <TextField
-              required
-              id="outlined-required"
-              label={`${chain?.testnet ? "fDAIx" : "DAIx"} / month`}
-              placeholder="0"
-              value={amount}
-              onChange={onChange}
-            />
-          </div>
+          <Recipient recipient={recipient} error={error} setRecipient={setRecipient} setError={setError} />
+          {chain && (<Amount chain={chain} amount={amount} setAmount={setAmount} />)}
           <Button
             variant="contained"
             endIcon={<SendIcon />}
@@ -168,6 +139,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         {
           (chain && chain.testnet) ? 
             (provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} /> )) :
+            chain ?
             (
             <p>
               No enough <b>DAIx</b>?
@@ -182,7 +154,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
               </a>
               &nbsp;page and then back.
             </p>
-          )
+          ) : null
         }
         </Box>
       </div>
