@@ -8,15 +8,14 @@ import { ChangeEvent, useState, FC } from 'react';
 
 import { ethers, utils } from "ethers";
 
-import { Framework } from "@superfluid-finance/sdk-core";
-
 import { useAccount, useNetwork, useProvider, useSigner } from 'wagmi'
 
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 import { Alert } from "@/components/Alert";
-import { sfNetwork } from '@/utils/network';
+import { createSfFramework, sfNetwork } from '@/utils/network';
+import { Faucet } from '@/components/Faucet';
 
 type SponsorProps = {
   /** receipient address */
@@ -72,10 +71,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         receiver = utils.getAddress(recipient);
       }
 
-      const sf = await Framework.create({
-        chainId: chain.id,
-        provider,
-      });
+      const sf = await createSfFramework(provider, chain.id);
 
       const superTokenCls = await sf.loadSuperToken(paymentToken)
       const superToken = superTokenCls.address;
@@ -90,7 +86,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         userData,
       });
 
-      toast.info("Waiting for user operations...");
+      toast.info("Waiting for user's operations...");
       await createFlowOperation.exec(signer);
       toast.success(`Sponsor successfully!`);
       setIsSuccess(true);
@@ -157,6 +153,8 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           </a>.
        </Alert>
        )}
+        <br/>
+        {chain && provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} />)}
         </Box>
       </div>
       <ToastContainer
