@@ -73,7 +73,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
 
       const sf = await createSfFramework(provider, chain.id);
 
-      const superTokenCls = await sf.loadSuperToken(paymentToken)
+      const superTokenCls = await sf.loadSuperToken(paymentToken);
       const superToken = superTokenCls.address;
 
       const userData = utils.defaultAbiCoder.encode(['string'], ['zhyd1997.eth']);
@@ -93,7 +93,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
     } catch (e: any) {
       setIsSuccess(false);
       console.error(e);
-      toast.error(e?.reason ?? e?.message?.split(" (")[0]?.split(" [")[0]);
+      toast.error(e?.error?.reason ?? e?.reason ?? e?.message?.split(" (")[0]?.split(" [")[0]);
     }
 
     setIsLoading(false);
