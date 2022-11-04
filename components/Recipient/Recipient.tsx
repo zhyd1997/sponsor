@@ -21,7 +21,7 @@ export const Recipient: FC<RecipientProps> = ({ recipient, setRecipient, error, 
       <TextField
         required
         id="outlined-required"
-        label="Wallet Address"
+        label="ENS Name or Wallet Address"
         value={recipient}
         onChange={onChange}
         error={error !== ""}
