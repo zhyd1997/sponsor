@@ -53,7 +53,7 @@ export const TokenBalance: FC<TokenBalanceProps> = ({ chain, account, token }) =
   }, [chain]);
 
   return (
-    <div style={{ display: "flex", gap: "16px" }}>
+    <div style={{ display: "flex", gap: "16px", justifyContent: "space-between" }}>
       <Typography variant="body1" component={"div"} sx={{ display: "flex" }}>
       <Image src={token.icon} alt={`${token.name} icon`} width={24} height={24} />
       &nbsp;{token.name}&nbsp;</Typography>

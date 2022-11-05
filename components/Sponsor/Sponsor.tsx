@@ -2,7 +2,6 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { useState, FC } from 'react';
@@ -19,7 +18,6 @@ import dynamic from "next/dynamic";
 import { Recipient } from "@/components/Recipient";
 import { createSfFramework } from "@/utils/createSfFramework";
 import { sfNetwork } from '@/constants/network';
-import { tokens } from '@/constants/tokens';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 const TransactionHashLink = dynamic(
@@ -28,7 +26,7 @@ const TransactionHashLink = dynamic(
 const Alert = dynamic(() => import("@/components/Alert").then((mod) => mod.Alert));
 const Faucet = dynamic(() => import("@/components/Faucet").then((mod) => mod.Faucet));
 const Tips = dynamic(() => import("@/components/Tips").then((mod) => mod.Tips));
-const TokenBalance = dynamic(() => import("@/components/TokenBalance").then((mod) => mod.TokenBalance));
+const ERC20 = dynamic(() => import("@/components/ERC20").then((mod) => mod.ERC20));
 
 type SponsorProps = {
   /** receipient address */
@@ -158,18 +156,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
        )}
         <br />
         {chain && !chain.testnet && sender && (
-          <>
-          <div>
-          <Typography variant="subtitle1">Your ERC-20 Token Balances: </Typography>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-          {tokens.map((token) => {
-            return (
-              <TokenBalance key={token.name} chain={chain} account={sender} token={token} />
-            );
-          })}
-        </div>
-          </>
+          <ERC20 chain={chain} account={sender} />
         )}
         <br/>
         {
