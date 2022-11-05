@@ -12,7 +12,7 @@ import { alchemyNetwork } from "@/utils/network";
 import { token } from "@/utils/token";
 import { formatBalance } from "@/utils/formatBalance";
 
-import daiIcon from "../../public/token/DAI.png";
+import daiIcon from "@/public/token/Dai.png";
 
 type TokenBalanceProps = {
   /** chain */

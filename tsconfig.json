@@ -21,6 +21,7 @@
       "@/utils/*": ["utils/*"],
       "@/abi/*": ["abi/*"],
       "@/types/*": ["types/*"],
+      "@/public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
