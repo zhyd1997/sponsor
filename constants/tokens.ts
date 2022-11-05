@@ -1,7 +1,7 @@
 import { chain } from "wagmi";
 
-import dai from "@/public/token/DAI.png";
-import usdc from "@/public/token/USDC.png";
+import dai from "@/assets/token/DAI.png";
+import usdc from "@/assets/token/USDC.png";
 import type { Token } from "@/types/index";
 
 export const tokenContractAddresses = {

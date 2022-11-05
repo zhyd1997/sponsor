@@ -22,7 +22,7 @@
       "@/utils/*": ["utils/*"],
       "@/abi/*": ["abi/*"],
       "@/types/*": ["types/*"],
-      "@/public/*": ["public/*"]
+      "@/assets/*": ["assets/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
