@@ -154,6 +154,14 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
             <TransactionHashLink chain={chain} txnHash={txnHash} />
         </Alert>
        )}
+       <br />
+       <Alert severity="warning">
+          Note: You can cancel your sponsor on&nbsp;
+          <a href="https://app.superfluid.finance/" target="_blank">
+            Superfluid DApp
+          </a>
+          &nbsp;at any time.
+       </Alert>
         <br />
         {chain && !chain.testnet && sender && (
           <ERC20 chain={chain} account={sender} />
