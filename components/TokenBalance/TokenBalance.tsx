@@ -12,6 +12,8 @@ import { alchemyNetwork } from "@/utils/network";
 import { token } from "@/utils/token";
 import { formatBalance } from "@/utils/formatBalance";
 
+import daiIcon from "../../public/token/DAI.png";
+
 type TokenBalanceProps = {
   /** chain */
   chain: ChainT;
@@ -52,9 +54,9 @@ export const TokenBalance: FC<TokenBalanceProps> = ({ chain, account }) => {
 
   return (
     <div style={{ display: "flex", gap: "16px" }}>
-      <Typography variant="body1" component={"div"}>Your ERC-20 DAI&nbsp;
+      <Typography variant="body1" component={"div"} sx={{ display: "flex" }}>Your ERC-20 DAI&nbsp;
       {/* http://brand.makerdao.com/ */}
-      <Image src={"/token/DAI.png"} alt="DAI icon" width={24} height={24} />
+      <Image src={daiIcon} alt="DAI icon" width={24} height={24} />
       &nbsp;balance:&nbsp;</Typography>
       <Typography variant="body1">{balance}</Typography>
     </div>
