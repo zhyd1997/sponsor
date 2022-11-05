@@ -16,14 +16,16 @@ import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 
 import { Recipient } from "@/components/Recipient";
-import { Alert } from "@/components/Alert";
 import { createSfFramework, sfNetwork } from '@/utils/network';
-import { Faucet } from '@/components/Faucet';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 const TransactionHashLink = dynamic(
   () => import("@/components/TransactionHashLink").then((mod) => mod.TransactionHashLink)
 );
+const Alert = dynamic(() => import("@/components/Alert").then((mod) => mod.Alert));
+const Faucet = dynamic(() => import("@/components/Faucet").then((mod) => mod.Faucet));
+const Tips = dynamic(() => import("@/components/Tips").then((mod) => mod.Tips));
+const TokenBalance = dynamic(() => import("@/components/TokenBalance").then((mod) => mod.TokenBalance));
 
 type SponsorProps = {
   /** receipient address */
@@ -151,26 +153,16 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
             <TransactionHashLink chain={chain} txnHash={txnHash} />
         </Alert>
        )}
+        <br />
+        {chain && !chain.testnet && sender && (<TokenBalance chain={chain} account={sender} />)}
         <br/>
         {
           (chain && chain.testnet) ? 
             (provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} /> )) :
             chain ?
             (
-            <p>
-              No enough <b>DAIx</b>?
-              <br />
-              Wrap some <b>DAI</b> on the&nbsp;
-              <a
-                href="https://app.superfluid.finance/wrap?upgrade"
-                target="_blank"
-                style={{ background: "white", padding: "8px", borderRadius: "8px" }}
-              >
-                Superfluid
-              </a>
-              &nbsp;page and then back.
-            </p>
-          ) : null
+              <Tips />
+            ) : null
         }
         </Box>
       </div>

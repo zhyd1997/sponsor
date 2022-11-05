@@ -12,6 +12,7 @@ specifiers:
   '@types/react': 18.0.24
   '@types/react-dom': 18.0.8
   '@vercel/analytics': ^0.1.3
+  alchemy-sdk: ^2.2.0
   ethers: ^5.7.2
   graphql: ^16.6.0
   next: 13.0.1
@@ -33,6 +34,7 @@ dependencies:
   '@types/react': 18.0.24
   '@types/react-dom': 18.0.8
   '@vercel/analytics': 0.1.3_react@18.2.0
+  alchemy-sdk: 2.2.0
   ethers: 5.7.2
   graphql: 16.6.0
   next: 13.0.1_qtpcxnaaarbm4ws7ughq6oxfve
@@ -3405,6 +3407,29 @@ packages:
       uri-js: 4.4.1
     dev: false
 
+  /alchemy-sdk/2.2.0:
+    resolution: {integrity: sha512-66eTe1JstJvfxOwyvJzNiagp0xQUiWt+2XAuJND/uPIP+WHQbSgid+rLG2lu1eMcxe7kzocvAfnnkMojkhXLXw==}
+    dependencies:
+      '@ethersproject/abstract-provider': 5.7.0
+      '@ethersproject/bignumber': 5.7.0
+      '@ethersproject/bytes': 5.7.0
+      '@ethersproject/contracts': 5.7.0
+      '@ethersproject/hash': 5.7.0
+      '@ethersproject/networks': 5.7.1
+      '@ethersproject/providers': 5.7.2
+      '@ethersproject/units': 5.7.0
+      '@ethersproject/wallet': 5.7.0
+      '@ethersproject/web': 5.7.1
+      axios: 0.26.1
+      sturdy-websocket: 0.2.1
+      websocket: 1.0.34
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - supports-color
+      - utf-8-validate
+    dev: false
+
   /anser/1.4.10:
     resolution: {integrity: sha512-hCv9AqTQ8ycjpSd3upOJd7vFwW1JaoYQ7tpham03GJ1ca8/65rqn0RpaWpItOAd6ylW9wAw6luXYPJIyPFVOww==}
     dev: false
@@ -3598,6 +3623,14 @@ packages:
 
   /axios/0.21.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /axios/0.26.1:
+    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
     dependencies:
       follow-redirects: 1.15.2
     transitivePeerDependencies:
@@ -9461,6 +9494,10 @@ packages:
   /strip-json-comments/2.0.1:
     resolution: {integrity: sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /sturdy-websocket/0.2.1:
+    resolution: {integrity: sha512-NnzSOEKyv4I83qbuKw9ROtJrrT6Z/Xt7I0HiP/e6H6GnpeTDvzwGIGeJ8slai+VwODSHQDooW2CAilJwT9SpRg==}
     dev: false
 
   /styled-jsx/5.1.0_otspjrsspon4ofp37rshhlhp2y:
