@@ -2,6 +2,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
+import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { useState, FC } from 'react';
@@ -16,7 +17,9 @@ import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 
 import { Recipient } from "@/components/Recipient";
-import { createSfFramework, sfNetwork } from '@/utils/network';
+import { createSfFramework } from "@/utils/createSfFramework";
+import { sfNetwork } from '@/constants/network';
+import { tokens } from '@/constants/tokens';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 const TransactionHashLink = dynamic(
@@ -154,7 +157,20 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         </Alert>
        )}
         <br />
-        {chain && !chain.testnet && sender && (<TokenBalance chain={chain} account={sender} />)}
+        {chain && !chain.testnet && sender && (
+          <>
+          <div>
+          <Typography variant="subtitle1">Your ERC-20 Token Balances: </Typography>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          {tokens.map((token) => {
+            return (
+              <TokenBalance key={token.name} chain={chain} account={sender} token={token} />
+            );
+          })}
+        </div>
+          </>
+        )}
         <br/>
         {
           (chain && chain.testnet) ? 

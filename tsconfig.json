@@ -18,6 +18,7 @@
     "paths": {
       "@/styles/*": ["styles/*"],
       "@/components/*": ["components/*"],
+      "@/constants/*": ["constants/*"],
       "@/utils/*": ["utils/*"],
       "@/abi/*": ["abi/*"],
       "@/types/*": ["types/*"],
