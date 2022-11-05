@@ -1,8 +1,7 @@
-import { BigNumber, utils } from "ethers";
+import { utils } from "ethers";
 
-export const formatBalance = (tokenBalance: string): string => {
-  const bnBalance = BigNumber.from(tokenBalance);
-  const ether = utils.formatEther(bnBalance);
+export const formatBalance = (tokenBalance: string, unit: "ether" | "mwei"): string => {
+  const ether = utils.formatUnits(tokenBalance, unit);
   const balance = Number(ether).toFixed(6);
 
   return balance;

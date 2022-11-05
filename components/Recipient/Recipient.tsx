@@ -22,6 +22,7 @@ export const Recipient: FC<RecipientProps> = ({ recipient, setRecipient, error, 
         required
         id="outlined-required"
         label="ENS Name or Wallet Address"
+        placeholder="Who you want to sponsor"
         value={recipient}
         onChange={onChange}
         error={error !== ""}

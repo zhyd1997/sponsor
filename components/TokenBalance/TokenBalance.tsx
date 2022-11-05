@@ -7,21 +7,21 @@ import Image from "next/image";
 
 import Typography from '@mui/material/Typography';
 
-import type { ChainT } from "@/types/index";
-import { alchemyNetwork } from "@/utils/network";
-import { token } from "@/utils/token";
+import type { ChainT, Token } from "@/types/index";
+import { alchemyNetwork } from "@/constants/network";
+import { tokenContractAddresses } from "@/constants/tokens";
 import { formatBalance } from "@/utils/formatBalance";
-
-import daiIcon from "@/public/token/Dai.png";
 
 type TokenBalanceProps = {
   /** chain */
   chain: ChainT;
   /** account */
   account: string;
+  /** token */
+  token: Token;
 };
 
-export const TokenBalance: FC<TokenBalanceProps> = ({ chain, account }) => {
+export const TokenBalance: FC<TokenBalanceProps> = ({ chain, account, token }) => {
   const [balance, setBalance] = useState("-");
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const TokenBalance: FC<TokenBalanceProps> = ({ chain, account }) => {
 
       const alchemy = new Alchemy(config);
 
-      const tokenContractAddress = [token.DAI[chain.network]];
+      const tokenContractAddress = [tokenContractAddresses[token.name][chain.network]];
 
       const data = await alchemy.core.getTokenBalances(account, tokenContractAddress);
 
@@ -46,18 +46,17 @@ export const TokenBalance: FC<TokenBalanceProps> = ({ chain, account }) => {
         return;
       }
 
-      const _balance = formatBalance(tokenBalance);
+      const _balance = formatBalance(tokenBalance, token.unit);
 
       setBalance(_balance);
     })();
   }, [chain]);
 
   return (
-    <div style={{ display: "flex", gap: "16px" }}>
-      <Typography variant="body1" component={"div"} sx={{ display: "flex" }}>Your ERC-20 DAI&nbsp;
-      {/* http://brand.makerdao.com/ */}
-      <Image src={daiIcon} alt="DAI icon" width={24} height={24} />
-      &nbsp;balance:&nbsp;</Typography>
+    <div style={{ display: "flex", gap: "16px", justifyContent: "space-between" }}>
+      <Typography variant="body1" component={"div"} sx={{ display: "flex" }}>
+      <Image src={token.icon} alt={`${token.name} icon`} width={24} height={24} />
+      &nbsp;{token.name}&nbsp;</Typography>
       <Typography variant="body1">{balance}</Typography>
     </div>
   )

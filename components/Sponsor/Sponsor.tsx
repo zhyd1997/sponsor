@@ -16,7 +16,8 @@ import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 
 import { Recipient } from "@/components/Recipient";
-import { createSfFramework, sfNetwork } from '@/utils/network';
+import { createSfFramework } from "@/utils/createSfFramework";
+import { sfNetwork } from '@/constants/network';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 const TransactionHashLink = dynamic(
@@ -25,7 +26,7 @@ const TransactionHashLink = dynamic(
 const Alert = dynamic(() => import("@/components/Alert").then((mod) => mod.Alert));
 const Faucet = dynamic(() => import("@/components/Faucet").then((mod) => mod.Faucet));
 const Tips = dynamic(() => import("@/components/Tips").then((mod) => mod.Tips));
-const TokenBalance = dynamic(() => import("@/components/TokenBalance").then((mod) => mod.TokenBalance));
+const ERC20 = dynamic(() => import("@/components/ERC20").then((mod) => mod.ERC20));
 
 type SponsorProps = {
   /** receipient address */
@@ -154,7 +155,9 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         </Alert>
        )}
         <br />
-        {chain && !chain.testnet && sender && (<TokenBalance chain={chain} account={sender} />)}
+        {chain && !chain.testnet && sender && (
+          <ERC20 chain={chain} account={sender} />
+        )}
         <br/>
         {
           (chain && chain.testnet) ? 
