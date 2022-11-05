@@ -12,7 +12,10 @@ Powered by [Superfluid](https://superfluid.finance).
 ```shell
 pnpm install
 
-cp .env.example .env # add your Infura API key
+cp .env.example .env
+
+# add your Infura API key (Superfluid SDK needs it)
+# add your Alchemy API key (get ERC-20 token balances)
 
 pnpm run dev
 ```

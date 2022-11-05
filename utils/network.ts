@@ -3,6 +3,7 @@ import { chain } from "wagmi";
 import type { Provider } from "@/types/index";
 
 import { Framework } from "@superfluid-finance/sdk-core";
+import { Network } from "alchemy-sdk";
 
 /**
  * map networks to console.superfluid.finance explorer.
@@ -18,4 +19,9 @@ export const createSfFramework = async (provider: Provider, chainId: number): Pr
     chainId,
     provider,
   });
+};
+
+export const alchemyNetwork = {
+  [chain.polygon.network]: Network.MATIC_MAINNET,
+  [chain.optimism.network]: Network.OPT_MAINNET,
 };
