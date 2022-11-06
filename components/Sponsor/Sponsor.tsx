@@ -21,6 +21,7 @@ import { Recipient } from "@/components/Recipient";
 import { createSfFramework } from "@/utils/createSfFramework";
 import { sfNetwork } from '@/constants/network';
 import { tokens } from '@/constants/tokens';
+import { T } from '@/types/index';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 const TransactionHashLink = dynamic(
@@ -51,6 +52,8 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
 
   const [txnHash, setTxnHash] = useState("");
 
+  const [currentTab, setCurrentTab] = useState(T.DAIx);
+
   const sponsor = async () => {
     if (!chain || !sender || !signer) {
       return;
@@ -59,7 +62,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
     setIsSuccess(false);
 
     try {
-      const paymentToken = chain.testnet ? "fDAIx" : "DAIx";
+      const paymentToken = chain.testnet ? "fDAIx" : tokens[currentTab].superTokenSymbol;
       const monthlyAmount = utils.parseEther(amount);
       const flowRate = monthlyAmount.div(60 * 60 * 24 * 30).toString();
 
@@ -151,7 +154,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         >
           <Recipient recipient={recipient} error={error} setRecipient={setRecipient} setError={setError} />
           {chain && sender && (
-            <Amount chain={chain} provider={provider} account={sender} amount={amount} setAmount={setAmount} />
+            <Amount chain={chain} provider={provider} account={sender} amount={amount} setAmount={setAmount} currentTab={currentTab} setCurrentTab={setCurrentTab} />
           )}
           {chain && sender && (
             <>

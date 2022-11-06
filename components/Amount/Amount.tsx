@@ -4,14 +4,14 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TextField from '@mui/material/TextField';
 
-import type { ChainT, Provider } from "@/types/index";
+import type { ChainT, Provider, T } from "@/types/index";
 
 import { tokens } from '@/constants/tokens';
 
 type TabPanelProps = {
   children: ReactNode;
-  value: number;
-  index: number;
+  value: T;
+  index: T;
 };
 
 const TabPanel:FC<TabPanelProps> = (props) => {
@@ -40,13 +40,14 @@ type AmountProps = {
   /** amount */
   amount: string;
   setAmount: Dispatch<SetStateAction<string>>;
+  /** current tab */
+  currentTab: T;
+  setCurrentTab: Dispatch<SetStateAction<T>>;
 };
 
-export const Amount: FC<AmountProps> = ({ chain, provider, account, amount, setAmount }) => {
-  const [value, setValue] = useState(0);
-
-  const handleTabChange = (evt: SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+export const Amount: FC<AmountProps> = ({ chain, provider, account, amount, setAmount, currentTab, setCurrentTab }) => {
+  const handleTabChange = (evt: SyntheticEvent, newValue: T) => {
+    setCurrentTab(newValue);
   };
 
   const onChange = (evt: ChangeEvent<HTMLInputElement>) => {
@@ -74,7 +75,7 @@ export const Amount: FC<AmountProps> = ({ chain, provider, account, amount, setA
       ) : (
         <>
           <Tabs
-            value={value}
+            value={currentTab}
             onChange={handleTabChange}
             aria-label="payment token select tabs"
             variant="fullWidth"
@@ -100,7 +101,7 @@ export const Amount: FC<AmountProps> = ({ chain, provider, account, amount, setA
           </Tabs>
           {tokens.map(({ superTokenSymbol }, index) => {
             return (
-              <TabPanel key={superTokenSymbol} value={value} index={index}>
+              <TabPanel key={superTokenSymbol} value={currentTab} index={index}>
                 <TextField
                   required
                   id="outlined-required"
