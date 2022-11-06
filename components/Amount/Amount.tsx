@@ -1,10 +1,10 @@
-import { ChangeEvent, Dispatch, FC, ReactNode, SetStateAction, SyntheticEvent, useState } from 'react';
+import { ChangeEvent, Dispatch, FC, ReactNode, SetStateAction, SyntheticEvent } from 'react';
 import Image from 'next/image';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TextField from '@mui/material/TextField';
 
-import type { ChainT, Provider, T } from "@/types/index";
+import type { ChainT, T } from "@/types/index";
 
 import { tokens } from '@/constants/tokens';
 
@@ -33,10 +33,6 @@ const TabPanel:FC<TabPanelProps> = (props) => {
 type AmountProps = {
   /** chain */
   chain: ChainT;
-  /** provider */
-  provider: Provider;
-  /** account */
-  account: string;
   /** amount */
   amount: string;
   setAmount: Dispatch<SetStateAction<string>>;
@@ -45,7 +41,7 @@ type AmountProps = {
   setCurrentTab: Dispatch<SetStateAction<T>>;
 };
 
-export const Amount: FC<AmountProps> = ({ chain, provider, account, amount, setAmount, currentTab, setCurrentTab }) => {
+export const Amount: FC<AmountProps> = ({ chain, amount, setAmount, currentTab, setCurrentTab }) => {
   const handleTabChange = (evt: SyntheticEvent, newValue: T) => {
     setCurrentTab(newValue);
   };

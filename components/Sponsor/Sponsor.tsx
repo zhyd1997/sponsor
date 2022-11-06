@@ -154,7 +154,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         >
           <Recipient recipient={recipient} error={error} setRecipient={setRecipient} setError={setError} />
           {chain && sender && (
-            <Amount chain={chain} provider={provider} account={sender} amount={amount} setAmount={setAmount} currentTab={currentTab} setCurrentTab={setCurrentTab} />
+            <Amount chain={chain} amount={amount} setAmount={setAmount} currentTab={currentTab} setCurrentTab={setCurrentTab} />
           )}
           {chain && sender && (
             <>
