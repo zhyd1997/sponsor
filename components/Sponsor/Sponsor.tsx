@@ -155,13 +155,15 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         </Alert>
        )}
        <br />
-       <Alert severity="warning">
-          Note: You can cancel your sponsor on&nbsp;
+       {chain && (
+        <Alert severity="warning">
+          Note: You can cancel your sponsoring on&nbsp;
           <a href="https://app.superfluid.finance/" target="_blank">
             Superfluid DApp
           </a>
           &nbsp;at any time.
-       </Alert>
+      </Alert>
+       )}
         <br />
         {chain && !chain.testnet && sender && (
           <ERC20 chain={chain} account={sender} />
