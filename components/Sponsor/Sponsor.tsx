@@ -15,6 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 import dynamic from "next/dynamic";
 
+import type { ICreateFlowParams } from '@superfluid-finance/sdk-core';
+
 import { Recipient } from "@/components/Recipient";
 import { createSfFramework } from "@/utils/createSfFramework";
 import { sfNetwork } from '@/constants/network';
@@ -80,6 +82,8 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         return;
       }
 
+      toast.info("Preparing Superfluid Service...");
+
       const sf = await createSfFramework(provider, chain.id);
 
       const superTokenCls = await sf.loadSuperToken(paymentToken);
@@ -87,16 +91,35 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
 
       const userData = utils.defaultAbiCoder.encode(['string'], ['zhyd1997.eth']);
 
-      const createFlowOperation = sf.cfaV1.createFlow({
+      const userFlow = await sf.cfaV1.getFlow({
+        superToken,
+        sender,
+        receiver,
+        providerOrSigner: provider,
+      });
+
+      let flowOperation;
+
+      const params: ICreateFlowParams = {
         flowRate,
         sender,
         receiver,
         superToken,
         userData,
-      });
+      };
 
-      toast.info("Waiting for user's operations...");
-      const res = await createFlowOperation.exec(signer);
+      if (Number(userFlow.flowRate) !== 0) {
+        toast.warn("You have sponsored him / her!\nThe operation will update your sponsoring amount...");
+        flowOperation = sf.cfaV1.updateFlow({ ...params });
+      } else {
+        flowOperation = sf.cfaV1.createFlow({ ...params });
+      }
+
+      if (!flowOperation) return;
+
+      toast.info("Waiting for your operations...");
+      const res = await flowOperation.exec(signer);
+      toast.info("Waiting for Block confirmation...");
       const txn = await res.wait();
       toast.success(`Sponsor successfully!`);
       setTxnHash(txn.transactionHash);
