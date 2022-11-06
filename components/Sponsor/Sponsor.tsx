@@ -27,6 +27,7 @@ const Alert = dynamic(() => import("@/components/Alert").then((mod) => mod.Alert
 const Faucet = dynamic(() => import("@/components/Faucet").then((mod) => mod.Faucet));
 const Tips = dynamic(() => import("@/components/Tips").then((mod) => mod.Tips));
 const ERC20 = dynamic(() => import("@/components/ERC20").then((mod) => mod.ERC20));
+const SuperToken = dynamic(() => import("@/components/SuperToken").then((mod) => mod.SuperToken));
 
 type SponsorProps = {
   /** receipient address */
@@ -126,6 +127,12 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         >
           <Recipient recipient={recipient} error={error} setRecipient={setRecipient} setError={setError} />
           {chain && (<Amount chain={chain} amount={amount} setAmount={setAmount} />)}
+          {chain && sender && (
+            <>
+              {[chain.testnet ? "fDAIx" : "DAIx"].map((superTokenSymbol) => <SuperToken key={superTokenSymbol} chain={chain} provider={provider} account={sender} superTokenSymbol={superTokenSymbol} />)}
+            </>
+          )}
+          <br />
           {isLoading ? (
             <LoadingButton variant="contained" loading>
               Send
@@ -134,7 +141,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
             <Button
               variant="contained"
               endIcon={<SendIcon />}
-              disabled={!recipient || !amount || error !== ""}
+              disabled={!chain || !recipient || !amount || error !== ""}
               onClick={sponsor}
             >
               Send
