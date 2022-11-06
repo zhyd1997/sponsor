@@ -190,6 +190,19 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
               Send
             </Button>
           )}
+          <br />
+          {chain && !chain.testnet && sender && (
+            <ERC20 chain={chain} account={sender} />
+          )}
+          <br/>
+          {
+            (chain && chain.testnet) ? 
+              (provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} /> )) :
+              chain ?
+              (
+                <Tips />
+              ) : null
+          }
         <br />
        {chain && isSuccess && (
          <Alert severity="success">
@@ -214,19 +227,6 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           &nbsp;at any time.
       </Alert>
        )}
-        <br />
-        {chain && !chain.testnet && sender && (
-          <ERC20 chain={chain} account={sender} />
-        )}
-        <br/>
-        {
-          (chain && chain.testnet) ? 
-            (provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} /> )) :
-            chain ?
-            (
-              <Tips />
-            ) : null
-        }
         </Box>
       </div>
       <ToastContainer
