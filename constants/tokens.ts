@@ -22,12 +22,14 @@ export const tokenContractAddresses = {
 export const tokens: Token[] = [
   {
     name: "DAI",
+    superTokenSymbol: "DAIx",
     /** http://brand.makerdao.com/ */
     icon: dai,
     unit: "ether",
   },
   {
     name: "USDC",
+    superTokenSymbol: "USDCx",
     /** https://usdcfaucet.com/ */
     icon: usdc,
     unit: "mwei",

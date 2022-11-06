@@ -20,6 +20,8 @@ import type { ICreateFlowParams } from '@superfluid-finance/sdk-core';
 import { Recipient } from "@/components/Recipient";
 import { createSfFramework } from "@/utils/createSfFramework";
 import { sfNetwork } from '@/constants/network';
+import { tokens } from '@/constants/tokens';
+import { T } from '@/types/index';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 const TransactionHashLink = dynamic(
@@ -50,6 +52,8 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
 
   const [txnHash, setTxnHash] = useState("");
 
+  const [currentTab, setCurrentTab] = useState(T.DAIx);
+
   const sponsor = async () => {
     if (!chain || !sender || !signer) {
       return;
@@ -58,7 +62,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
     setIsSuccess(false);
 
     try {
-      const paymentToken = chain.testnet ? "fDAIx" : "DAIx";
+      const paymentToken = chain.testnet ? "fDAIx" : tokens[currentTab].superTokenSymbol;
       const monthlyAmount = utils.parseEther(amount);
       const flowRate = monthlyAmount.div(60 * 60 * 24 * 30).toString();
 
@@ -149,10 +153,26 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           autoComplete="off"
         >
           <Recipient recipient={recipient} error={error} setRecipient={setRecipient} setError={setError} />
-          {chain && (<Amount chain={chain} amount={amount} setAmount={setAmount} />)}
+          {chain && sender && (
+            <Amount chain={chain} amount={amount} setAmount={setAmount} currentTab={currentTab} setCurrentTab={setCurrentTab} />
+          )}
           {chain && sender && (
             <>
-              {[chain.testnet ? "fDAIx" : "DAIx"].map((superTokenSymbol) => <SuperToken key={superTokenSymbol} chain={chain} provider={provider} account={sender} superTokenSymbol={superTokenSymbol} />)}
+              {
+                chain.testnet
+                  ?
+                    (<SuperToken chain={chain} provider={provider} account={sender} superTokenSymbol={"fDAIx"} />)
+                  :
+                    tokens.map(({ superTokenSymbol }) =>
+                      <SuperToken
+                        key={superTokenSymbol}
+                        chain={chain}
+                        provider={provider}
+                        account={sender}
+                        superTokenSymbol={superTokenSymbol}
+                      />
+                    )
+                }
             </>
           )}
           <br />
@@ -170,6 +190,19 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
               Send
             </Button>
           )}
+          <br />
+          {chain && !chain.testnet && sender && (
+            <ERC20 chain={chain} account={sender} />
+          )}
+          <br/>
+          {
+            (chain && chain.testnet) ? 
+              (provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} /> )) :
+              chain ?
+              (
+                <Tips superToken={tokens[currentTab].superTokenSymbol} token={tokens[currentTab].name} />
+              ) : null
+          }
         <br />
        {chain && isSuccess && (
          <Alert severity="success">
@@ -194,19 +227,6 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           &nbsp;at any time.
       </Alert>
        )}
-        <br />
-        {chain && !chain.testnet && sender && (
-          <ERC20 chain={chain} account={sender} />
-        )}
-        <br/>
-        {
-          (chain && chain.testnet) ? 
-            (provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} /> )) :
-            chain ?
-            (
-              <Tips />
-            ) : null
-        }
         </Box>
       </div>
       <ToastContainer
