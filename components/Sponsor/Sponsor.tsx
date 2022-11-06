@@ -20,6 +20,7 @@ import type { ICreateFlowParams } from '@superfluid-finance/sdk-core';
 import { Recipient } from "@/components/Recipient";
 import { createSfFramework } from "@/utils/createSfFramework";
 import { sfNetwork } from '@/constants/network';
+import { tokens } from '@/constants/tokens';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 const TransactionHashLink = dynamic(
@@ -149,10 +150,26 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           autoComplete="off"
         >
           <Recipient recipient={recipient} error={error} setRecipient={setRecipient} setError={setError} />
-          {chain && (<Amount chain={chain} amount={amount} setAmount={setAmount} />)}
+          {chain && sender && (
+            <Amount chain={chain} provider={provider} account={sender} amount={amount} setAmount={setAmount} />
+          )}
           {chain && sender && (
             <>
-              {[chain.testnet ? "fDAIx" : "DAIx"].map((superTokenSymbol) => <SuperToken key={superTokenSymbol} chain={chain} provider={provider} account={sender} superTokenSymbol={superTokenSymbol} />)}
+              {
+                chain.testnet
+                  ?
+                    (<SuperToken chain={chain} provider={provider} account={sender} superTokenSymbol={"fDAIx"} />)
+                  :
+                    tokens.map(({ superTokenSymbol }) =>
+                      <SuperToken
+                        key={superTokenSymbol}
+                        chain={chain}
+                        provider={provider}
+                        account={sender}
+                        superTokenSymbol={superTokenSymbol}
+                      />
+                    )
+                }
             </>
           )}
           <br />

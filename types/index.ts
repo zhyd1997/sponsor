@@ -14,5 +14,7 @@ export type Unit = "ether" | "mwei";
 export type Token = {
   name: "DAI" | "USDC";
   icon: any;
+  superTokenSymbol: "DAIx" | "USDCx";
+  /** Alchemy balance format */
   unit: Unit;
 };
