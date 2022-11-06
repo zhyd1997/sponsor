@@ -200,7 +200,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
               (provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} /> )) :
               chain ?
               (
-                <Tips />
+                <Tips superToken={tokens[currentTab].superTokenSymbol} token={tokens[currentTab].name} />
               ) : null
           }
         <br />
