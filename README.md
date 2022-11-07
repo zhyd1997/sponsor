@@ -10,6 +10,8 @@ Powered by [Superfluid](https://superfluid.finance).
 
 ![Screenshot](https://ik.imagekit.io/1winv85cn8g/Sponsor/demo-PC_a7qgFvK23.png)
 
+- iPhone 13
+
 <div style="display:flex">
 
 <img src="https://ik.imagekit.io/1winv85cn8g/Sponsor/demo-goerli-mobile_u6QI4Xq3t.png" alt="mobile-goerli" width="329" height="631" />
@@ -17,6 +19,10 @@ Powered by [Superfluid](https://superfluid.finance).
 <img src="https://ik.imagekit.io/1winv85cn8g/Sponsor/demo-mobile-polygon_XpKr1tc0R.png" alt="mobile-op" width="329" height="631" />
 
 </div>
+
+- Pixel 6
+
+<img src="https://pbs.twimg.com/media/Fg3gqidUUAAlMN_?format=jpg&name=small" alt="pixel-6-matic" />
 
 Video Show (on mobile 📱):
 
