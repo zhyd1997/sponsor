@@ -12,13 +12,15 @@ Powered by [Superfluid](https://superfluid.finance).
 
 <div style="display:flex">
 
-![mobile-goerli](https://ik.imagekit.io/1winv85cn8g/Sponsor/demo-goerli-mobile_u6QI4Xq3t.png)
-
-![mobile-op](https://ik.imagekit.io/1winv85cn8g/Sponsor/demo-op-mobile_SqpmPw_Gb.png)
+<img src="https://ik.imagekit.io/1winv85cn8g/Sponsor/demo-goerli-mobile_u6QI4Xq3t.png" alt="mobile-goerli" width="329" height="631" />
+<img src="https://ik.imagekit.io/1winv85cn8g/Sponsor/demo-op-mobile_SqpmPw_Gb.png" alt="mobile-op" width="329" height="631" />
+<img src="https://ik.imagekit.io/1winv85cn8g/Sponsor/demo-mobile-polygon_XpKr1tc0R.png" alt="mobile-op" width="329" height="631" />
 
 </div>
 
-Video Show:
+Video Show (on mobile 📱):
+
+0. <a href="https://youtu.be/M4CjT700l7E" target="_blank">connect the wallet</a>
 
 1. <a href="https://youtu.be/S-Wq0I8HIG4" target="_blank">start sponsoring on Goerli testnet</a>
 
