@@ -7,10 +7,12 @@ import { Network } from "alchemy-sdk";
 export const sfNetwork = {
   [chain.optimism.network]: "optimism-mainnet",
   [chain.polygon.network]: "matic",
+  [chain.arbitrum.network]: "arbitrum-one",
   [chain.goerli.network]: "goerli",
 };
 
 export const alchemyNetwork = {
   [chain.polygon.network]: Network.MATIC_MAINNET,
   [chain.optimism.network]: Network.OPT_MAINNET,
+  [chain.arbitrum.network]: Network.ARB_MAINNET,
 };

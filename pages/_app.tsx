@@ -22,6 +22,7 @@ const { chains, provider } = configureChains(
   [
     chain.polygon,
     chain.optimism,
+    chain.arbitrum,
     chain.goerli,
   ],
   [
