@@ -50,7 +50,7 @@ export const TokenBalance: FC<TokenBalanceProps> = ({ chain, account, token }) =
 
       setBalance(_balance);
     })();
-  }, [chain]);
+  }, [chain, account]);
 
   return (
     <div style={{ display: "flex", gap: "16px", justifyContent: "space-between" }}>
