@@ -4,7 +4,11 @@ import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import { useState, FC } from 'react';
+import { useState, FC, useEffect } from 'react';
+
+import { Alchemy } from "alchemy-sdk";
+import type { AlchemySettings } from "alchemy-sdk";
+import { alchemyNetwork } from "@/constants/network";
 
 import { ethers, utils } from "ethers";
 
@@ -32,6 +36,7 @@ const Faucet = dynamic(() => import("@/components/Faucet").then((mod) => mod.Fau
 const Tips = dynamic(() => import("@/components/Tips").then((mod) => mod.Tips));
 const ERC20 = dynamic(() => import("@/components/ERC20").then((mod) => mod.ERC20));
 const SuperToken = dynamic(() => import("@/components/SuperToken").then((mod) => mod.SuperToken));
+const Nft = dynamic(() => import("@/components/Nft").then((mod) => mod.Nft));
 
 type SponsorProps = {
   /** receipient address */
@@ -51,8 +56,55 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
   const [amount, setAmount] = useState('');
 
   const [txnHash, setTxnHash] = useState("");
+  
+  const [open, setOpen] = useState(false);
+  const [nftSrc, setNftSrc] = useState<string | undefined>(undefined);
+  const [nftDescription, setNftDescription] = useState<string | undefined>(undefined);
 
   const [currentTab, setCurrentTab] = useState(T.DAIx);
+
+  useEffect(() => {
+    if (chain) {
+      (async () => {
+        const config: AlchemySettings = {
+          apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
+          network: alchemyNetwork[chain.network],
+        };
+  
+        const alchemy = new Alchemy(config);
+
+        let nftOwner;
+
+        if (recipient.endsWith(".eth")) {
+          const infuraProvider = new ethers.providers.InfuraProvider();
+          nftOwner = await infuraProvider.resolveName(recipient);
+          if (!nftOwner) {
+            return;
+          }
+        } else {
+          nftOwner = utils.getAddress(recipient);
+        }
+
+        const nftsForOwner = await alchemy.nft.getNftsForOwner(nftOwner);
+        if (!nftsForOwner.totalCount) {
+          return;
+        }
+
+        for (const nft of nftsForOwner.ownedNfts) {
+          if (nft.contract.address.toLowerCase() === "0x91CF787b441207e6faB4e18320521c3d23c587E3".toLowerCase()) {
+            const response = await alchemy.nft.getNftMetadata(
+              nft.contract.address,
+              nft.tokenId
+            );
+            console.log(response);
+            setNftSrc(response.rawMetadata?.image);
+            setNftDescription(response.rawMetadata?.name);
+            setOpen(true);
+          }
+        }
+      })();
+    }
+  }, [isSuccess, chain]);
 
   const sponsor = async () => {
     if (!chain || !sender || !signer) {
@@ -229,6 +281,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
        )}
         </Box>
       </div>
+      {nftSrc && nftDescription && (<Nft open={open} setOpen={setOpen} nftSrc={nftSrc} nftDescription={nftDescription} />)}
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
@@ -240,7 +293,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         draggable
         pauseOnHover
         theme="dark"
-      />  
+      />
     </>
   )
 };
