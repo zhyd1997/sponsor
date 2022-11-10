@@ -4,16 +4,15 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Image from 'next/image';
 
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 'max-content',
   bgcolor: 'background.paper',
-  border: '1px solid #000',
+  border: '1px solid #fff',
   boxShadow: 24,
   p: 4,
 };
@@ -45,7 +44,7 @@ export const Nft: FC<NftProps> = ({ open, setOpen, nftSrc, nftDescription }) => 
       >
         <Fade in={open}>
           <Box sx={style}>
-            <img src={nftSrc} alt={nftDescription} width={"100%"} height={"100%"} />
+            <img src={nftSrc} alt={nftDescription} width={350} height={350} />
           </Box>
         </Fade>
       </Modal>
