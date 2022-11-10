@@ -24,7 +24,7 @@ import type { ICreateFlowParams } from '@superfluid-finance/sdk-core';
 import { Recipient } from "@/components/Recipient";
 import { createSfFramework } from "@/utils/createSfFramework";
 import { sfNetwork } from '@/constants/network';
-import { tokens } from '@/constants/tokens';
+import { tokenContractAddresses, tokens } from '@/constants/tokens';
 import { T } from '@/types/index';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
@@ -58,13 +58,14 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
   const [txnHash, setTxnHash] = useState("");
   
   const [open, setOpen] = useState(false);
+  const [showNft, setShowNft] = useState(false);
   const [nftSrc, setNftSrc] = useState<string | undefined>(undefined);
   const [nftDescription, setNftDescription] = useState<string | undefined>(undefined);
 
   const [currentTab, setCurrentTab] = useState(T.DAIx);
 
   useEffect(() => {
-    if (chain) {
+    if (chain && showNft) {
       (async () => {
         const config: AlchemySettings = {
           apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
@@ -91,12 +92,11 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         }
 
         for (const nft of nftsForOwner.ownedNfts) {
-          if (nft.contract.address.toLowerCase() === "0x91CF787b441207e6faB4e18320521c3d23c587E3".toLowerCase()) {
+          if (nft.contract.address.toLowerCase() === tokenContractAddresses.SFS[chain.network].toLowerCase()) {
             const response = await alchemy.nft.getNftMetadata(
               nft.contract.address,
               nft.tokenId
             );
-            console.log(response);
             setNftSrc(response.rawMetadata?.image);
             setNftDescription(response.rawMetadata?.name);
             setOpen(true);
@@ -104,7 +104,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         }
       })();
     }
-  }, [isSuccess, chain]);
+  }, [chain, showNft]);
 
   const sponsor = async () => {
     if (!chain || !sender || !signer) {
@@ -112,6 +112,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
     }
     setIsLoading(true);
     setIsSuccess(false);
+    setShowNft(false);
 
     try {
       const paymentToken = chain.testnet ? "fDAIx" : tokens[currentTab].superTokenSymbol;
@@ -180,6 +181,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
       toast.success(`Sponsor successfully!`);
       setTxnHash(txn.transactionHash);
       setIsSuccess(true);
+      setShowNft(true);
     } catch (e: any) {
       setIsSuccess(false);
       console.error(e);
