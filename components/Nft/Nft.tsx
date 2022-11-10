@@ -5,6 +5,9 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 
+import { getTxnHashLink } from '@/utils/getTxnHashLink';
+import type { ChainT } from '@/types/index';
+
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
@@ -18,6 +21,8 @@ const style = {
 };
 
 type NftProps = {
+  /** chain */
+  chain: ChainT;
   /** open */
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -29,8 +34,10 @@ type NftProps = {
   nftTxn: string;
 };
 
-export const Nft: FC<NftProps> = ({ open, setOpen, nftSrc, nftDescription, nftTxn }) => {
+export const Nft: FC<NftProps> = ({ chain, open, setOpen, nftSrc, nftDescription, nftTxn }) => {
   const handleClose = () => setOpen(false);
+  
+  const txnHashLink = getTxnHashLink(chain.network, nftTxn);
 
   return (
       <Modal
@@ -46,7 +53,7 @@ export const Nft: FC<NftProps> = ({ open, setOpen, nftSrc, nftDescription, nftTx
       >
         <Fade in={open}>
           <Box sx={style}>
-            <a href={nftTxn} target="_blank" rel="noreferrer">
+            <a href={txnHashLink} target="_blank" rel="noreferrer">
               <img src={nftSrc} alt={nftDescription} width={350} height={350} />
             </a>
           </Box>
