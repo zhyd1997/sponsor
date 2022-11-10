@@ -50,6 +50,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
   const [recipient, setRecipient] = useState(addr.trim());
+  const [resolvedAddress, setResolvedAddress] = useState("");
   const [amount, setAmount] = useState('');
 
   const [txnHash, setTxnHash] = useState("");
@@ -62,23 +63,11 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
   const [currentTab, setCurrentTab] = useState(T.DAIx);
 
   useEffect(() => {
-    if (chain && showNft) {
+    if (chain && showNft && resolvedAddress) {
       (async () => {
         const alchemy = getAlchemyInstance(chain.network);
 
-        let nftOwner;
-
-        if (recipient.endsWith(".eth")) {
-          const infuraProvider = new ethers.providers.InfuraProvider();
-          nftOwner = await infuraProvider.resolveName(recipient);
-          if (!nftOwner) {
-            return;
-          }
-        } else {
-          nftOwner = utils.getAddress(recipient);
-        }
-
-        const nftsForOwner = await alchemy.nft.getNftsForOwner(nftOwner);
+        const nftsForOwner = await alchemy.nft.getNftsForOwner(resolvedAddress);
         if (!nftsForOwner.totalCount) {
           return;
         }
@@ -96,7 +85,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         }
       })();
     }
-  }, [chain, showNft]);
+  }, [chain, showNft, resolvedAddress]);
 
   const sponsor = async () => {
     if (!chain || !sender || !signer) {
@@ -121,9 +110,11 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           throw new Error("can not find valid address of associated ENS name!");
         } else {
           toast.success(`Associated wallet address is ${receiver}`);
+          setResolvedAddress(receiver);
         }
       } else {
         receiver = utils.getAddress(recipient);
+        setResolvedAddress(receiver);
       }
 
       if (receiver === sender) {
