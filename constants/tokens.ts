@@ -21,6 +21,17 @@ export const tokenContractAddresses = {
     /** https://arbiscan.io/token/0xff970a61a04b1ca14834a43f5de4533ebddb5cc8 */
     [chain.arbitrum.network]: "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
   },
+  /** Superfluid Stream: FlowNFT */
+  SFS: {
+    /** https://polygonscan.com/address/0xfbd3363e2fc4db7ce069dd422a54cc5c5eaca9b7 */
+    [chain.polygon.network]: "0xfBD3363E2FC4db7cE069dd422A54cc5C5EaCA9b7",
+    /** https://optimistic.etherscan.io/address/0x91cf787b441207e6fab4e18320521c3d23c587e3 */
+    [chain.optimism.network]: "0x91CF787b441207e6faB4e18320521c3d23c587E3",
+    /** https://arbiscan.io/address/0x91cf787b441207e6fab4e18320521c3d23c587e3 */
+    [chain.arbitrum.network]: "0x91CF787b441207e6faB4e18320521c3d23c587E3",
+    /** https://goerli.etherscan.io/address/0x91cf787b441207e6fab4e18320521c3d23c587e3 */
+    [chain.goerli.network]: "0x91CF787b441207e6faB4e18320521c3d23c587E3",
+  }
 };
 
 export const tokens: Token[] = [

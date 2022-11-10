@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import { useState, FC } from 'react';
+import { useState, FC, useEffect } from 'react';
 
 import { ethers, utils } from "ethers";
 
@@ -20,8 +20,9 @@ import type { ICreateFlowParams } from '@superfluid-finance/sdk-core';
 import { Recipient } from "@/components/Recipient";
 import { createSfFramework } from "@/utils/createSfFramework";
 import { sfNetwork } from '@/constants/network';
-import { tokens } from '@/constants/tokens';
+import { tokenContractAddresses, tokens } from '@/constants/tokens';
 import { T } from '@/types/index';
+import { getAlchemyInstance } from '@/utils/getAlchemyInstance';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 const TransactionHashLink = dynamic(
@@ -32,6 +33,7 @@ const Faucet = dynamic(() => import("@/components/Faucet").then((mod) => mod.Fau
 const Tips = dynamic(() => import("@/components/Tips").then((mod) => mod.Tips));
 const ERC20 = dynamic(() => import("@/components/ERC20").then((mod) => mod.ERC20));
 const SuperToken = dynamic(() => import("@/components/SuperToken").then((mod) => mod.SuperToken));
+const Nft = dynamic(() => import("@/components/Nft").then((mod) => mod.Nft));
 
 type SponsorProps = {
   /** receipient address */
@@ -48,11 +50,42 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
   const [recipient, setRecipient] = useState(addr.trim());
+  const [resolvedAddress, setResolvedAddress] = useState("");
   const [amount, setAmount] = useState('');
 
   const [txnHash, setTxnHash] = useState("");
+  
+  const [open, setOpen] = useState(false);
+  const [showNft, setShowNft] = useState(false);
+  const [nftSrc, setNftSrc] = useState<string | undefined>(undefined);
+  const [nftDescription, setNftDescription] = useState<string | undefined>(undefined);
 
   const [currentTab, setCurrentTab] = useState(T.DAIx);
+
+  useEffect(() => {
+    if (chain && showNft && resolvedAddress) {
+      (async () => {
+        const alchemy = getAlchemyInstance(chain.network);
+
+        const nftsForOwner = await alchemy.nft.getNftsForOwner(resolvedAddress);
+        if (!nftsForOwner.totalCount) {
+          return;
+        }
+
+        for (const nft of nftsForOwner.ownedNfts) {
+          if (nft.contract.address.toLowerCase() === tokenContractAddresses.SFS[chain.network].toLowerCase()) {
+            const response = await alchemy.nft.getNftMetadata(
+              nft.contract.address,
+              nft.tokenId
+            );
+            setNftSrc(response.rawMetadata?.image);
+            setNftDescription(response.rawMetadata?.name);
+            setOpen(true);
+          }
+        }
+      })();
+    }
+  }, [chain, showNft, resolvedAddress]);
 
   const sponsor = async () => {
     if (!chain || !sender || !signer) {
@@ -60,6 +93,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
     }
     setIsLoading(true);
     setIsSuccess(false);
+    setShowNft(false);
 
     try {
       const paymentToken = chain.testnet ? "fDAIx" : tokens[currentTab].superTokenSymbol;
@@ -76,9 +110,11 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           throw new Error("can not find valid address of associated ENS name!");
         } else {
           toast.success(`Associated wallet address is ${receiver}`);
+          setResolvedAddress(receiver);
         }
       } else {
         receiver = utils.getAddress(recipient);
+        setResolvedAddress(receiver);
       }
 
       if (receiver === sender) {
@@ -128,6 +164,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
       toast.success(`Sponsor successfully!`);
       setTxnHash(txn.transactionHash);
       setIsSuccess(true);
+      setShowNft(true);
     } catch (e: any) {
       setIsSuccess(false);
       console.error(e);
@@ -229,6 +266,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
        )}
         </Box>
       </div>
+      {chain && nftSrc && nftDescription && txnHash && (<Nft chain={chain} open={open} setOpen={setOpen} nftSrc={nftSrc} nftDescription={nftDescription} nftTxn={txnHash} />)}
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
@@ -240,7 +278,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
         draggable
         pauseOnHover
         theme="dark"
-      />  
+      />
     </>
   )
 };

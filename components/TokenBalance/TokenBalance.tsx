@@ -1,16 +1,13 @@
 import { FC, useEffect, useState } from "react";
 
-import { Alchemy } from "alchemy-sdk";
-import type { AlchemySettings } from "alchemy-sdk";
-
 import Image from "next/image";
 
 import Typography from '@mui/material/Typography';
 
 import type { ChainT, Token } from "@/types/index";
-import { alchemyNetwork } from "@/constants/network";
 import { tokenContractAddresses } from "@/constants/tokens";
 import { formatBalance } from "@/utils/formatBalance";
+import { getAlchemyInstance } from "@/utils/getAlchemyInstance";
 
 type TokenBalanceProps = {
   /** chain */
@@ -27,13 +24,7 @@ export const TokenBalance: FC<TokenBalanceProps> = ({ chain, account, token }) =
   useEffect(() => {
     (async () => {
       setBalance("-");
-
-      const config: AlchemySettings = {
-        apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
-        network: alchemyNetwork[chain.network],
-      };
-
-      const alchemy = new Alchemy(config);
+      const alchemy = getAlchemyInstance(chain.network);
 
       const tokenContractAddress = [tokenContractAddresses[token.name][chain.network]];
 
