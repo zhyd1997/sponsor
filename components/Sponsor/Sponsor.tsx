@@ -6,10 +6,6 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { useState, FC, useEffect } from 'react';
 
-import { Alchemy } from "alchemy-sdk";
-import type { AlchemySettings } from "alchemy-sdk";
-import { alchemyNetwork } from "@/constants/network";
-
 import { ethers, utils } from "ethers";
 
 import { useAccount, useNetwork, useProvider, useSigner } from 'wagmi'
@@ -26,6 +22,7 @@ import { createSfFramework } from "@/utils/createSfFramework";
 import { sfNetwork } from '@/constants/network';
 import { tokenContractAddresses, tokens } from '@/constants/tokens';
 import { T } from '@/types/index';
+import { getAlchemyInstance } from '@/utils/getAlchemyInstance';
 
 const Amount = dynamic(() => import("@/components/Amount").then((mod) => mod.Amount));
 const TransactionHashLink = dynamic(
@@ -67,12 +64,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
   useEffect(() => {
     if (chain && showNft) {
       (async () => {
-        const config: AlchemySettings = {
-          apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
-          network: alchemyNetwork[chain.network],
-        };
-  
-        const alchemy = new Alchemy(config);
+        const alchemy = getAlchemyInstance(chain.network);
 
         let nftOwner;
 
