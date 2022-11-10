@@ -266,7 +266,7 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
        )}
         </Box>
       </div>
-      {nftSrc && nftDescription && (<Nft open={open} setOpen={setOpen} nftSrc={nftSrc} nftDescription={nftDescription} />)}
+      {nftSrc && nftDescription && txnHash && (<Nft open={open} setOpen={setOpen} nftSrc={nftSrc} nftDescription={nftDescription} nftTxn={txnHash} />)}
       <ToastContainer
         position="bottom-left"
         autoClose={5000}

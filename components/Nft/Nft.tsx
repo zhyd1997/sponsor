@@ -4,6 +4,7 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
+import Link from '@mui/material/Link';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -25,9 +26,11 @@ type NftProps = {
   nftSrc: string;
   /** nft description */
   nftDescription: string;
+  /** nft transaction hash */
+  nftTxn: string;
 };
 
-export const Nft: FC<NftProps> = ({ open, setOpen, nftSrc, nftDescription }) => {
+export const Nft: FC<NftProps> = ({ open, setOpen, nftSrc, nftDescription, nftTxn }) => {
   const handleClose = () => setOpen(false);
 
   return (
@@ -44,7 +47,9 @@ export const Nft: FC<NftProps> = ({ open, setOpen, nftSrc, nftDescription }) => 
       >
         <Fade in={open}>
           <Box sx={style}>
-            <img src={nftSrc} alt={nftDescription} width={350} height={350} />
+            <Link href={nftTxn} target="_blank" rel="noreferrer">
+              <img src={nftSrc} alt={nftDescription} width={350} height={350} />
+            </Link>
           </Box>
         </Fade>
       </Modal>
