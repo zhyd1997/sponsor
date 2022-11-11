@@ -72,16 +72,30 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
           return;
         }
 
-        for (const nft of nftsForOwner.ownedNfts) {
-          if (nft.contract.address.toLowerCase() === tokenContractAddresses.SFS[chain.network].toLowerCase()) {
-            const response = await alchemy.nft.getNftMetadata(
-              nft.contract.address,
-              nft.tokenId
-            );
-            setNftSrc(response.rawMetadata?.image);
-            setNftDescription(response.rawMetadata?.name);
-            setOpen(true);
+        const nft = nftsForOwner.ownedNfts.find((owndNft) => {
+          const isSameContract =
+            owndNft.contract.address.toLowerCase() === tokenContractAddresses.SFS[chain.network].toLowerCase();
+
+          if (!isSameContract) {
+            return false;
           }
+
+          const nftSender = owndNft.rawMetadata?.attributes?.find(
+            (attribute) => attribute.trait_type === "Sender"
+          )?.value;
+          const isSameSender = nftSender?.toLowerCase() === sender?.toLowerCase();
+
+          return isSameContract && isSameSender;
+        });
+
+        if (nft) {
+          const response = await alchemy.nft.getNftMetadata(
+            nft.contract.address,
+            nft.tokenId
+          );
+          setNftSrc(response.rawMetadata?.image);
+          setNftDescription(response.rawMetadata?.name);
+          setOpen(true);
         }
       })();
     }
