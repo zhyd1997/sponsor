@@ -15,9 +15,10 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 'max-content',
   bgcolor: 'background.paper',
-  border: '1px solid #fff',
+  border: '4px solid #4caf50',
   boxShadow: 24,
-  p: 4,
+  borderRadius: '4px',
+  lineHeight: 0,
 };
 
 type NftProps = {
