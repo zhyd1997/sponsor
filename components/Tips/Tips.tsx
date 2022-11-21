@@ -1,26 +1,14 @@
 import { Alert } from "@/components/Alert";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 type TipsProps = {
-  /** ERC-20 Token */
-  token: string;
-  /** Super Token */
-  superToken: string;
+  children: ReactNode;
 };
 
-export const Tips: FC<TipsProps> = ({ token, superToken }) => {
+export const Tips: FC<TipsProps> = ({ children }) => {
   return (
     <Alert severity="error">
-      No enough <b>{superToken}</b> (Super Token)?
-      <br />
-      Wrap some <b>{token}</b> on the&nbsp;
-      <a
-        href="https://app.superfluid.finance/wrap?upgrade"
-        target="_blank"
-      >
-        Superfluid
-      </a>
-      &nbsp;page and then back.
+      {children}
     </Alert>
   );
 };
