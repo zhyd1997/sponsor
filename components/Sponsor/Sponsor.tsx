@@ -36,7 +36,7 @@ const SuperToken = dynamic(() => import("@/components/SuperToken").then((mod) =>
 const Nft = dynamic(() => import("@/components/Nft").then((mod) => mod.Nft));
 
 type SponsorProps = {
-  /** receipient address */
+  /** recipient address */
   addr?: string;
 };
 
