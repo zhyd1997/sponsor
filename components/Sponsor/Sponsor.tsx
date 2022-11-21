@@ -251,7 +251,20 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
               (provider && signer && (<Faucet provider={provider} signer={signer} chainId={chain.id} /> )) :
               chain ?
               (
-                <Tips superToken={tokens[currentTab].superTokenSymbol} token={tokens[currentTab].name} />
+                <Tips>
+                  <>
+                    No enough <b>{tokens[currentTab].superTokenSymbol}</b> (Super Token)?
+                    <br />
+                    Wrap some <b>{tokens[currentTab].name}</b> on the&nbsp;
+                    <a
+                      href="https://app.superfluid.finance/wrap?upgrade"
+                      target="_blank"
+                    >
+                      Superfluid
+                    </a>
+                    &nbsp;page and then back.
+                  </>
+                </Tips>
               ) : null
           }
         <br />
