@@ -13,6 +13,8 @@ import { useAccount, useNetwork, useProvider, useSigner } from 'wagmi'
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
+import GitHubIcon from '@mui/icons-material/GitHub';
+
 import dynamic from "next/dynamic";
 
 import type { ICreateFlowParams } from '@superfluid-finance/sdk-core';
@@ -191,7 +193,19 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
   return (
     <>
       <div>
-        <ConnectButton />
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          margin: '8px'
+        }}>
+          <ConnectButton />
+          <div>
+            <a href="https://github.com/zhyd1997/sponsor" target={"_blank"}>
+              <GitHubIcon fontSize='large' color='action' />
+            </a>
+          </div>
+        </div>
         <Box
           component="form"
           sx={{
