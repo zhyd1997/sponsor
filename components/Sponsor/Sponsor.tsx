@@ -8,7 +8,7 @@ import { useState, FC, useEffect } from 'react';
 
 import { ethers, utils } from "ethers";
 
-import { useAccount, useNetwork, useProvider, useSigner } from 'wagmi'
+import { chainId, useAccount, useNetwork, useProvider, useSigner, useSwitchNetwork } from 'wagmi'
 
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -37,16 +37,21 @@ const ERC20 = dynamic(() => import("@/components/ERC20").then((mod) => mod.ERC20
 const SuperToken = dynamic(() => import("@/components/SuperToken").then((mod) => mod.SuperToken));
 const Nft = dynamic(() => import("@/components/Nft").then((mod) => mod.Nft));
 
+export type NetworkT = 'polygon'| 'optimism' | 'arbitrum' | 'goerli' | '';
+
 type SponsorProps = {
   /** recipient address */
   addr?: string;
+  /** supported networks, must be lowercase */
+  network?: NetworkT;
 };
 
-export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
+export const Sponsor: FC<SponsorProps> = ({ addr = "", network = "" }) => {
   const { chain } = useNetwork();
   const provider = useProvider();
   const { address: sender } = useAccount();
   const { data: signer } = useSigner();
+  const { switchNetwork } = useSwitchNetwork();
 
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -102,6 +107,21 @@ export const Sponsor: FC<SponsorProps> = ({ addr = "" }) => {
       })();
     }
   }, [chain, showNft, resolvedAddress]);
+
+  useEffect(() => {
+    if (network && switchNetwork) {
+      if (
+        [
+          'polygon',
+          'optimism',
+          'arbitrum',
+          'goerli'
+        ].includes(network)
+      ) {
+        switchNetwork(chainId[network]);
+      }
+    }
+  }, [network, switchNetwork]);
 
   const sponsor = async () => {
     if (!chain || !sender || !signer) {
