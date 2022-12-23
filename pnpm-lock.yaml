@@ -10,7 +10,7 @@ specifiers:
   '@superfluid-finance/sdk-core': ^0.5.7
   '@types/node': 18.11.9
   '@types/react': 18.0.25
-  '@types/react-dom': 18.0.9
+  '@types/react-dom': 18.0.10
   '@vercel/analytics': ^0.1.3
   alchemy-sdk: ^2.2.0
   ethers: ^5.7.2
@@ -33,7 +33,7 @@ dependencies:
   '@superfluid-finance/sdk-core': 0.5.7_ah5tld5acdfmxt6vxye532e2rq
   '@types/node': 18.11.9
   '@types/react': 18.0.25
-  '@types/react-dom': 18.0.9
+  '@types/react-dom': 18.0.10
   '@vercel/analytics': 0.1.3_react@18.2.0
   alchemy-sdk: 2.2.0
   ethers: 5.7.2
@@ -2714,7 +2714,7 @@ packages:
     peerDependencies:
       '@truffle/contract': ^4.0.0
     dependencies:
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/69f9e0dc756f5e55164e9a270b8c0c61c0284aae
       '@truffle/contract': 4.5.23
       auto-bind: 4.0.0
       node-fetch: 2.6.7
@@ -2730,7 +2730,7 @@ packages:
       graphql: ^16.0.0
     dependencies:
       '@superfluid-finance/ethereum-contracts': 1.4.2_qmyv2fsdryjxfqprgnt4opxbii
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/69f9e0dc756f5e55164e9a270b8c0c61c0284aae
       browserify: 17.0.0
       ethers: 5.7.2
       graphql: 16.6.0
@@ -3008,8 +3008,8 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: false
 
-  /@types/react-dom/18.0.9:
-    resolution: {integrity: sha512-qnVvHxASt/H7i+XG1U1xMiY5t+IHcPGUK7TDMDzom08xa7e86eCeKOiLZezwCKVxJn6NEiiy2ekgX8aQssjIKg==}
+  /@types/react-dom/18.0.10:
+    resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
     dependencies:
       '@types/react': 18.0.25
     dev: false
@@ -10931,8 +10931,8 @@ packages:
       ethereumjs-util: 6.2.1
     dev: false
 
-  github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703:
-    resolution: {commit: aa1f9158956355fa1224cdf973b2dc972f3e5703, repo: git+ssh://git@github.com/superfluid-finance/metadata.git, type: git}
+  github.com/superfluid-finance/metadata/69f9e0dc756f5e55164e9a270b8c0c61c0284aae:
+    resolution: {tarball: https://codeload.github.com/superfluid-finance/metadata/tar.gz/69f9e0dc756f5e55164e9a270b8c0c61c0284aae}
     name: '@superfluid-finance/metadata'
     version: 1.1.0
     dev: false
