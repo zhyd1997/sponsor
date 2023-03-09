@@ -13,7 +13,7 @@ specifiers:
   '@types/react-dom': 18.0.9
   '@vercel/analytics': ^0.1.3
   alchemy-sdk: ^2.2.0
-  ethers: ^5.7.2
+  ethers: ^6.0.0
   graphql: ^16.6.0
   next: 13.0.1
   react: 18.2.0
@@ -29,14 +29,14 @@ dependencies:
   '@mui/icons-material': 5.10.9_pyu3bnv7xtproabsf64djpmivq
   '@mui/lab': 5.0.0-alpha.106_orixoqdvt2m5aekdkez2gi735e
   '@mui/material': 5.10.12_thp4wrxo45nyllusrnt46mid4u
-  '@rainbow-me/rainbowkit': 0.8.0_34cjc2jjasoiqsg4jltjjgnhi4
-  '@superfluid-finance/sdk-core': 0.5.7_ah5tld5acdfmxt6vxye532e2rq
+  '@rainbow-me/rainbowkit': 0.8.0_k4iyrilduhmp2fyocyxpazumbe
+  '@superfluid-finance/sdk-core': 0.5.7_3dmcoi7n2hxo7oxignshepevcu
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
   '@vercel/analytics': 0.1.3_react@18.2.0
   alchemy-sdk: 2.2.0
-  ethers: 5.7.2
+  ethers: 6.1.0
   graphql: 16.6.0
   next: 13.0.1_qtpcxnaaarbm4ws7ughq6oxfve
   react: 18.2.0
@@ -44,9 +44,13 @@ dependencies:
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
   sharp: 0.31.2
   typescript: 4.8.4
-  wagmi: 0.8.5_l5bxehg6v7hvwinaictoq7uehm
+  wagmi: 0.8.5_6xejbileoi4chofb4hn76parvy
 
 packages:
+
+  /@adraffy/ens-normalize/1.8.9:
+    resolution: {integrity: sha512-93OmGCV0vO8+JQ3FHG+gZk/MPHzzMPDRiCiFcCQNTCnHaaxsacO3ScTPGlu2wX2dOtgfalbchPcw1cOYYjHCYQ==}
+    dev: false
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
@@ -2370,6 +2374,14 @@ packages:
     dev: false
     optional: true
 
+  /@noble/hashes/1.1.2:
+    resolution: {integrity: sha512-KYRCASVTv6aeUi1tsF8/vpyR7zpfs3FUzy2Jqm+MU+LmUKhQ0y2FpfwqkCcxSg2ua4GALJd8k2R76WxwZGbQpA==}
+    dev: false
+
+  /@noble/secp256k1/1.7.1:
+    resolution: {integrity: sha512-hOUk6AyBFmqVrv7k5WAw/LpszxVbj9gGN4JRkIX52fdFAj1UA61KXmZDvqVEm+pOyec3+fIeZB02LYa/pWOArw==}
+    dev: false
+
   /@openzeppelin/contract-loader/0.6.3:
     resolution: {integrity: sha512-cOFIjBjwbGgZhDZsitNgJl0Ye1rd5yu/Yx5LMgeq3u0ZYzldm4uObzHDFq4gjDdoypvyORjjJa3BlFA7eAnVIg==}
     dependencies:
@@ -2409,7 +2421,7 @@ packages:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
 
-  /@rainbow-me/rainbowkit/0.8.0_34cjc2jjasoiqsg4jltjjgnhi4:
+  /@rainbow-me/rainbowkit/0.8.0_k4iyrilduhmp2fyocyxpazumbe:
     resolution: {integrity: sha512-4nqH5OGcNzYMe/fYSBU7qM8H102UzZ6PwURMA5z6puDct0BGpeBk0dofqaGATSDam+4RdEmKaqOz5r/1Lc3/0g==}
     engines: {node: '>=12.4'}
     peerDependencies:
@@ -2422,12 +2434,12 @@ packages:
       '@vanilla-extract/dynamic': 2.0.2
       '@vanilla-extract/sprinkles': 1.5.0_@vanilla-extract+css@1.9.1
       clsx: 1.1.1
-      ethers: 5.7.2
+      ethers: 6.1.0
       qrcode: 1.5.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-remove-scroll: 2.5.4_fan5qbzahqtxlm5dzefqlqx5ia
-      wagmi: 0.8.5_l5bxehg6v7hvwinaictoq7uehm
+      wagmi: 0.8.5_6xejbileoi4chofb4hn76parvy
     transitivePeerDependencies:
       - '@types/react'
     dev: false
@@ -2714,7 +2726,7 @@ packages:
     peerDependencies:
       '@truffle/contract': ^4.0.0
     dependencies:
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/3c8da09f7d99bf43298d526a585c92e402d9b7cc
       '@truffle/contract': 4.5.23
       auto-bind: 4.0.0
       node-fetch: 2.6.7
@@ -2722,7 +2734,7 @@ packages:
       - encoding
     dev: false
 
-  /@superfluid-finance/sdk-core/0.5.7_ah5tld5acdfmxt6vxye532e2rq:
+  /@superfluid-finance/sdk-core/0.5.7_3dmcoi7n2hxo7oxignshepevcu:
     resolution: {integrity: sha512-Knddsdyx+BjPv3a29+cv1WbYo4z684+rl3GjwouD2EERhBkEyR9fMgTAs5Edr5qA9BbcnihWe/PdEsjkkm//1g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -2730,9 +2742,9 @@ packages:
       graphql: ^16.0.0
     dependencies:
       '@superfluid-finance/ethereum-contracts': 1.4.2_qmyv2fsdryjxfqprgnt4opxbii
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/3c8da09f7d99bf43298d526a585c92e402d9b7cc
       browserify: 17.0.0
-      ethers: 5.7.2
+      ethers: 6.1.0
       graphql: 16.6.0
       graphql-request: 4.3.0_graphql@16.6.0
       lodash: 4.17.21
@@ -3120,7 +3132,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@wagmi/core/0.7.4_uwmz4gniyout2ivpdm7w2wosym:
+  /@wagmi/core/0.7.4_ivpsseq4wc3ldfvw5cuidacdki:
     resolution: {integrity: sha512-HhN5p0C9dlU1pWNF54hBEXLn12n5ueUJAxl0eg4YtcTTw/VIg/GSINm0eYkVznFPf4qus9ODA9BGTQ7k79d2gQ==}
     peerDependencies:
       '@coinbase/wallet-sdk': '>=3.3.0'
@@ -3135,7 +3147,7 @@ packages:
       '@coinbase/wallet-sdk': 3.5.4_atq3pxwl2vgronp4cy5kf52qjm
       '@walletconnect/ethereum-provider': 1.8.0
       abitype: 0.1.8_typescript@4.8.4
-      ethers: 5.7.2
+      ethers: 6.1.0
       eventemitter3: 4.0.7
       zustand: 4.1.4_react@18.2.0
     transitivePeerDependencies:
@@ -3403,6 +3415,10 @@ packages:
 
   /aes-js/3.1.2:
     resolution: {integrity: sha512-e5pEa2kBnBOgR4Y/p20pskXI74UEz7de8ZGVo58asOtvSVG5YAbJeELPZxOmt+Bnz3rX753YKhfIn4X4l1PPRQ==}
+    dev: false
+
+  /aes-js/4.0.0-beta.3:
+    resolution: {integrity: sha512-/xJX0/VTPcbc5xQE2VUP91y1xN8q/rDfhEzLm+vLc3hYvb5+qHCnpJRuFcrKn63zumK/sCwYYzhG8HP78JYSTA==}
     dev: false
 
   /ahocorasick/1.0.2:
@@ -5519,6 +5535,21 @@ packages:
       '@ethersproject/wallet': 5.7.0
       '@ethersproject/web': 5.7.1
       '@ethersproject/wordlists': 5.7.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
+
+  /ethers/6.1.0:
+    resolution: {integrity: sha512-aC45YGbvgXt7Nses5WsdQwc1cUIrrQt32zeFShNW7ZT3RQCIHBnd4nmbE5sJmrp70uTdwkRHkr4cZr1D/YwFPg==}
+    engines: {node: '>=14.0.0'}
+    dependencies:
+      '@adraffy/ens-normalize': 1.8.9
+      '@noble/hashes': 1.1.2
+      '@noble/secp256k1': 1.7.1
+      aes-js: 4.0.0-beta.3
+      tslib: 2.4.0
+      ws: 8.5.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -9921,6 +9952,10 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: false
 
+  /tslib/2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
+    dev: false
+
   /tslib/2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
     dev: false
@@ -10246,7 +10281,7 @@ packages:
     resolution: {integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==}
     dev: false
 
-  /wagmi/0.8.5_l5bxehg6v7hvwinaictoq7uehm:
+  /wagmi/0.8.5_6xejbileoi4chofb4hn76parvy:
     resolution: {integrity: sha512-LKxolobNPwTPsidtbgoA4x5zWUFeRAzaGqNE7AiSsM8wHRuClO6Mrp3XtGzVy/UfaMFE/yR1xWIJbiHXzeeEmA==}
     peerDependencies:
       ethers: '>=5.5.1'
@@ -10256,10 +10291,10 @@ packages:
       '@tanstack/query-sync-storage-persister': 4.15.1_hxlag2i2kjtmps3bnwg3slmyie
       '@tanstack/react-query': 4.16.1_5qh23tcr3iha6376fuaqv4s6zm
       '@tanstack/react-query-persist-client': 4.16.1_thimyohpasmmc5fzt4zf4hs2ui
-      '@wagmi/core': 0.7.4_uwmz4gniyout2ivpdm7w2wosym
+      '@wagmi/core': 0.7.4_ivpsseq4wc3ldfvw5cuidacdki
       '@walletconnect/ethereum-provider': 1.8.0
       abitype: 0.1.7_typescript@4.8.4
-      ethers: 5.7.2
+      ethers: 6.1.0
       react: 18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
     transitivePeerDependencies:
@@ -10759,6 +10794,19 @@ packages:
       utf-8-validate: 5.0.10
     dev: false
 
+  /ws/8.5.0:
+    resolution: {integrity: sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: false
+
   /xhr-request-promise/0.1.3:
     resolution: {integrity: sha512-YUBytBsuwgitWtdRzXDDkWAXzhdGB8bYm0sSzMPZT7Z2MBjMSTHFsyCT1yCRATY+XC69DUrQraRAEgcoCRaIPg==}
     dependencies:
@@ -10931,8 +10979,8 @@ packages:
       ethereumjs-util: 6.2.1
     dev: false
 
-  github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703:
-    resolution: {commit: aa1f9158956355fa1224cdf973b2dc972f3e5703, repo: git+ssh://git@github.com/superfluid-finance/metadata.git, type: git}
+  github.com/superfluid-finance/metadata/3c8da09f7d99bf43298d526a585c92e402d9b7cc:
+    resolution: {tarball: https://codeload.github.com/superfluid-finance/metadata/tar.gz/3c8da09f7d99bf43298d526a585c92e402d9b7cc}
     name: '@superfluid-finance/metadata'
-    version: 1.1.0
+    version: 1.1.2
     dev: false
