@@ -6,7 +6,7 @@ specifiers:
   '@mui/icons-material': ^5.10.9
   '@mui/lab': 5.0.0-alpha.106
   '@mui/material': ^5.10.12
-  '@rainbow-me/rainbowkit': ^0.8.0
+  '@rainbow-me/rainbowkit': ^0.12.0
   '@superfluid-finance/sdk-core': ^0.5.7
   '@types/node': 18.11.9
   '@types/react': 18.0.25
@@ -29,7 +29,7 @@ dependencies:
   '@mui/icons-material': 5.10.9_pyu3bnv7xtproabsf64djpmivq
   '@mui/lab': 5.0.0-alpha.106_orixoqdvt2m5aekdkez2gi735e
   '@mui/material': 5.10.12_thp4wrxo45nyllusrnt46mid4u
-  '@rainbow-me/rainbowkit': 0.8.0_34cjc2jjasoiqsg4jltjjgnhi4
+  '@rainbow-me/rainbowkit': 0.12.0_34cjc2jjasoiqsg4jltjjgnhi4
   '@superfluid-finance/sdk-core': 0.5.7_ah5tld5acdfmxt6vxye532e2rq
   '@types/node': 18.11.9
   '@types/react': 18.0.25
@@ -2409,14 +2409,14 @@ packages:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
 
-  /@rainbow-me/rainbowkit/0.8.0_34cjc2jjasoiqsg4jltjjgnhi4:
-    resolution: {integrity: sha512-4nqH5OGcNzYMe/fYSBU7qM8H102UzZ6PwURMA5z6puDct0BGpeBk0dofqaGATSDam+4RdEmKaqOz5r/1Lc3/0g==}
+  /@rainbow-me/rainbowkit/0.12.0_34cjc2jjasoiqsg4jltjjgnhi4:
+    resolution: {integrity: sha512-MdMkEejDfyo7mWb/ZJKFrBciYRIO0LlUPqBFS5yczdpUUNRtDrBvnAsigTqm9ZFpqmjRNY8Yd+HGK4DKFtFXLQ==}
     engines: {node: '>=12.4'}
     peerDependencies:
       ethers: '>=5.5.1'
       react: '>=17'
       react-dom: '>=17'
-      wagmi: 0.8.x
+      wagmi: 0.12.x
     dependencies:
       '@vanilla-extract/css': 1.9.1
       '@vanilla-extract/dynamic': 2.0.2
@@ -2714,7 +2714,7 @@ packages:
     peerDependencies:
       '@truffle/contract': ^4.0.0
     dependencies:
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/3c8da09f7d99bf43298d526a585c92e402d9b7cc
       '@truffle/contract': 4.5.23
       auto-bind: 4.0.0
       node-fetch: 2.6.7
@@ -2730,7 +2730,7 @@ packages:
       graphql: ^16.0.0
     dependencies:
       '@superfluid-finance/ethereum-contracts': 1.4.2_qmyv2fsdryjxfqprgnt4opxbii
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/3c8da09f7d99bf43298d526a585c92e402d9b7cc
       browserify: 17.0.0
       ethers: 5.7.2
       graphql: 16.6.0
@@ -10931,8 +10931,8 @@ packages:
       ethereumjs-util: 6.2.1
     dev: false
 
-  github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703:
-    resolution: {commit: aa1f9158956355fa1224cdf973b2dc972f3e5703, repo: git+ssh://git@github.com/superfluid-finance/metadata.git, type: git}
+  github.com/superfluid-finance/metadata/3c8da09f7d99bf43298d526a585c92e402d9b7cc:
+    resolution: {tarball: https://codeload.github.com/superfluid-finance/metadata/tar.gz/3c8da09f7d99bf43298d526a585c92e402d9b7cc}
     name: '@superfluid-finance/metadata'
-    version: 1.1.0
+    version: 1.1.2
     dev: false
