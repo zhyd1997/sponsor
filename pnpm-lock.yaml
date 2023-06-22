@@ -20,7 +20,7 @@ specifiers:
   react-dom: 18.2.0
   react-toastify: ^9.1.1
   sharp: ^0.31.2
-  typescript: 4.8.4
+  typescript: 4.9.5
   wagmi: ^0.8.5
 
 dependencies:
@@ -30,7 +30,7 @@ dependencies:
   '@mui/lab': 5.0.0-alpha.106_orixoqdvt2m5aekdkez2gi735e
   '@mui/material': 5.10.12_thp4wrxo45nyllusrnt46mid4u
   '@rainbow-me/rainbowkit': 0.8.0_34cjc2jjasoiqsg4jltjjgnhi4
-  '@superfluid-finance/sdk-core': 0.5.7_ah5tld5acdfmxt6vxye532e2rq
+  '@superfluid-finance/sdk-core': 0.5.7_li5ppnaisevbxye2ipdk5vln6q
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
@@ -43,8 +43,8 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
   sharp: 0.31.2
-  typescript: 4.8.4
-  wagmi: 0.8.5_l5bxehg6v7hvwinaictoq7uehm
+  typescript: 4.9.5
+  wagmi: 0.8.5_233xmo5rdhlerzb2fs5v4glzti
 
 packages:
 
@@ -2427,7 +2427,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-remove-scroll: 2.5.4_fan5qbzahqtxlm5dzefqlqx5ia
-      wagmi: 0.8.5_l5bxehg6v7hvwinaictoq7uehm
+      wagmi: 0.8.5_233xmo5rdhlerzb2fs5v4glzti
     transitivePeerDependencies:
       - '@types/react'
     dev: false
@@ -2714,7 +2714,7 @@ packages:
     peerDependencies:
       '@truffle/contract': ^4.0.0
     dependencies:
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/3c8da09f7d99bf43298d526a585c92e402d9b7cc
       '@truffle/contract': 4.5.23
       auto-bind: 4.0.0
       node-fetch: 2.6.7
@@ -2722,7 +2722,7 @@ packages:
       - encoding
     dev: false
 
-  /@superfluid-finance/sdk-core/0.5.7_ah5tld5acdfmxt6vxye532e2rq:
+  /@superfluid-finance/sdk-core/0.5.7_li5ppnaisevbxye2ipdk5vln6q:
     resolution: {integrity: sha512-Knddsdyx+BjPv3a29+cv1WbYo4z684+rl3GjwouD2EERhBkEyR9fMgTAs5Edr5qA9BbcnihWe/PdEsjkkm//1g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -2730,13 +2730,13 @@ packages:
       graphql: ^16.0.0
     dependencies:
       '@superfluid-finance/ethereum-contracts': 1.4.2_qmyv2fsdryjxfqprgnt4opxbii
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/3c8da09f7d99bf43298d526a585c92e402d9b7cc
       browserify: 17.0.0
       ethers: 5.7.2
       graphql: 16.6.0
       graphql-request: 4.3.0_graphql@16.6.0
       lodash: 4.17.21
-      tsify: 5.0.4_2xyjiyu467klsdyyzdujrsi6vm
+      tsify: 5.0.4_gz4av44jfgv3uhrr4mtcb6tbna
     transitivePeerDependencies:
       - '@openzeppelin/test-helpers'
       - bufferutil
@@ -3120,7 +3120,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@wagmi/core/0.7.4_uwmz4gniyout2ivpdm7w2wosym:
+  /@wagmi/core/0.7.4_zidxsylbi3xvexcnlwa76wcof4:
     resolution: {integrity: sha512-HhN5p0C9dlU1pWNF54hBEXLn12n5ueUJAxl0eg4YtcTTw/VIg/GSINm0eYkVznFPf4qus9ODA9BGTQ7k79d2gQ==}
     peerDependencies:
       '@coinbase/wallet-sdk': '>=3.3.0'
@@ -3134,7 +3134,7 @@ packages:
     dependencies:
       '@coinbase/wallet-sdk': 3.5.4_atq3pxwl2vgronp4cy5kf52qjm
       '@walletconnect/ethereum-provider': 1.8.0
-      abitype: 0.1.8_typescript@4.8.4
+      abitype: 0.1.8_typescript@4.9.5
       ethers: 5.7.2
       eventemitter3: 4.0.7
       zustand: 4.1.4_react@18.2.0
@@ -3341,22 +3341,22 @@ packages:
       through: 2.3.8
     dev: false
 
-  /abitype/0.1.7_typescript@4.8.4:
+  /abitype/0.1.7_typescript@4.9.5:
     resolution: {integrity: sha512-mNBIrA8xbkR0PrxXSO/7p3irNhyLKO6S4VfU3YrR37cqpJIq1D63Yg8KlovOZkCVAaQ+lJkGDkOhSpv1QmMXIg==}
     engines: {pnpm: '>=7'}
     peerDependencies:
       typescript: '>=4.7.4'
     dependencies:
-      typescript: 4.8.4
+      typescript: 4.9.5
     dev: false
 
-  /abitype/0.1.8_typescript@4.8.4:
+  /abitype/0.1.8_typescript@4.9.5:
     resolution: {integrity: sha512-2pde0KepTzdfu19ZrzYTYVIWo69+6UbBCY4B1RDiwWgo2XZtFSJhF6C+XThuRXbbZ823J0Rw1Y5cP0NXYVcCdQ==}
     engines: {pnpm: '>=7'}
     peerDependencies:
       typescript: '>=4.7.4'
     dependencies:
-      typescript: 4.8.4
+      typescript: 4.9.5
     dev: false
 
   /abort-controller/3.0.0:
@@ -9900,7 +9900,7 @@ packages:
       strip-json-comments: 2.0.1
     dev: false
 
-  /tsify/5.0.4_2xyjiyu467klsdyyzdujrsi6vm:
+  /tsify/5.0.4_gz4av44jfgv3uhrr4mtcb6tbna:
     resolution: {integrity: sha512-XAZtQ5OMPsJFclkZ9xMZWkSNyMhMxEPsz3D2zu79yoKorH9j/DT4xCloJeXk5+cDhosEibu4bseMVjyPOAyLJA==}
     engines: {node: '>=0.12'}
     peerDependencies:
@@ -9914,7 +9914,7 @@ packages:
       semver: 6.3.0
       through2: 2.0.5
       tsconfig: 5.0.3
-      typescript: 4.8.4
+      typescript: 4.9.5
     dev: false
 
   /tslib/1.14.1:
@@ -9979,8 +9979,8 @@ packages:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: false
 
-  /typescript/4.8.4:
-    resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
+  /typescript/4.9.5:
+    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: false
@@ -10246,7 +10246,7 @@ packages:
     resolution: {integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==}
     dev: false
 
-  /wagmi/0.8.5_l5bxehg6v7hvwinaictoq7uehm:
+  /wagmi/0.8.5_233xmo5rdhlerzb2fs5v4glzti:
     resolution: {integrity: sha512-LKxolobNPwTPsidtbgoA4x5zWUFeRAzaGqNE7AiSsM8wHRuClO6Mrp3XtGzVy/UfaMFE/yR1xWIJbiHXzeeEmA==}
     peerDependencies:
       ethers: '>=5.5.1'
@@ -10256,9 +10256,9 @@ packages:
       '@tanstack/query-sync-storage-persister': 4.15.1_hxlag2i2kjtmps3bnwg3slmyie
       '@tanstack/react-query': 4.16.1_5qh23tcr3iha6376fuaqv4s6zm
       '@tanstack/react-query-persist-client': 4.16.1_thimyohpasmmc5fzt4zf4hs2ui
-      '@wagmi/core': 0.7.4_uwmz4gniyout2ivpdm7w2wosym
+      '@wagmi/core': 0.7.4_zidxsylbi3xvexcnlwa76wcof4
       '@walletconnect/ethereum-provider': 1.8.0
-      abitype: 0.1.7_typescript@4.8.4
+      abitype: 0.1.7_typescript@4.9.5
       ethers: 5.7.2
       react: 18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
@@ -10931,8 +10931,8 @@ packages:
       ethereumjs-util: 6.2.1
     dev: false
 
-  github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703:
-    resolution: {commit: aa1f9158956355fa1224cdf973b2dc972f3e5703, repo: git+ssh://git@github.com/superfluid-finance/metadata.git, type: git}
+  github.com/superfluid-finance/metadata/3c8da09f7d99bf43298d526a585c92e402d9b7cc:
+    resolution: {tarball: https://codeload.github.com/superfluid-finance/metadata/tar.gz/3c8da09f7d99bf43298d526a585c92e402d9b7cc}
     name: '@superfluid-finance/metadata'
-    version: 1.1.0
+    version: 1.1.2
     dev: false
