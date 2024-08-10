@@ -15,7 +15,7 @@
     "@mui/lab": "5.0.0-alpha.106",
     "@mui/material": "^5.10.12",
     "@rainbow-me/rainbowkit": "^0.8.0",
-    "@superfluid-finance/sdk-core": "^0.5.7",
+    "@superfluid-finance/sdk-core": "^0.8.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
