@@ -8,7 +8,7 @@ specifiers:
   '@mui/material': ^5.10.12
   '@rainbow-me/rainbowkit': ^0.8.0
   '@superfluid-finance/sdk-core': ^0.5.7
-  '@types/node': 18.11.9
+  '@types/node': 18.19.59
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
   '@vercel/analytics': ^0.1.3
@@ -31,7 +31,7 @@ dependencies:
   '@mui/material': 5.10.12_thp4wrxo45nyllusrnt46mid4u
   '@rainbow-me/rainbowkit': 0.8.0_34cjc2jjasoiqsg4jltjjgnhi4
   '@superfluid-finance/sdk-core': 0.5.7_ah5tld5acdfmxt6vxye532e2rq
-  '@types/node': 18.11.9
+  '@types/node': 18.19.59
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
   '@vercel/analytics': 0.1.3_react@18.2.0
@@ -371,6 +371,7 @@ packages:
   /@babel/plugin-proposal-async-generator-functions/7.20.1_@babel+core@7.19.6:
     resolution: {integrity: sha512-Gh5rchzSwE4kC+o/6T8waD0WHEQIsDmjltY8WnWRXHUdH8axZhuH86Ov9M72YhJfDrZseQwuuWaaIT/TmePp3g==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-async-generator-functions instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -386,6 +387,7 @@ packages:
   /@babel/plugin-proposal-class-properties/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-cumfXOF0+nzZrrN8Rf0t7M+tF6sZc7vhQwYQck9q1/5w2OExlD+b4v4RpMJFaV1Z7WcDRgO6FqvxqxGlwo+RHQ==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -399,6 +401,7 @@ packages:
   /@babel/plugin-proposal-class-static-block/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-+I3oIiNxrCpup3Gi8n5IGMwj0gOCAjcJUSQEcotNnCCPMEnixawOQ+KeJPlgfjzx+FKQ1QSyZOWe7wmoJp7vhw==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-static-block instead.
     peerDependencies:
       '@babel/core': ^7.12.0
     dependencies:
@@ -413,6 +416,7 @@ packages:
   /@babel/plugin-proposal-dynamic-import/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-1auuwmK+Rz13SJj36R+jqFPMJWyKEDd7lLSdOj4oJK0UTgGueSAtkrCvz9ewmgyU/P941Rv2fQwZJN8s6QruXw==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-dynamic-import instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -435,6 +439,7 @@ packages:
   /@babel/plugin-proposal-export-namespace-from/7.18.9_@babel+core@7.19.6:
     resolution: {integrity: sha512-k1NtHyOMvlDDFeb9G5PhUXuGj8m/wiwojgQVEhJ/fsVsMCpLyOP4h0uGEjYJKrRI+EVPlb5Jk+Gt9P97lOGwtA==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-export-namespace-from instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -446,6 +451,7 @@ packages:
   /@babel/plugin-proposal-json-strings/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-lr1peyn9kOdbYc0xr0OdHTZ5FMqS6Di+H0Fz2I/JwMzGmzJETNeOFq2pBySw6X/KFL5EWDjlJuMsUGRFb8fQgQ==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-json-strings instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -457,6 +463,7 @@ packages:
   /@babel/plugin-proposal-logical-assignment-operators/7.18.9_@babel+core@7.19.6:
     resolution: {integrity: sha512-128YbMpjCrP35IOExw2Fq+x55LMP42DzhOhX2aNNIdI9avSWl2PI0yuBWarr3RYpZBSPtabfadkH2yeRiMD61Q==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-logical-assignment-operators instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -468,6 +475,7 @@ packages:
   /@babel/plugin-proposal-nullish-coalescing-operator/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-wQxQzxYeJqHcfppzBDnm1yAY0jSRkUXR2z8RePZYrKwMKgMlE8+Z6LUno+bd6LvbGh8Gltvy74+9pIYkr+XkKA==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -479,6 +487,7 @@ packages:
   /@babel/plugin-proposal-numeric-separator/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-ozlZFogPqoLm8WBr5Z8UckIoE4YQ5KESVcNudyXOR8uqIkliTEgJ3RoketfG6pmzLdeZF0H/wjE9/cCEitBl7Q==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -490,6 +499,7 @@ packages:
   /@babel/plugin-proposal-object-rest-spread/7.19.4_@babel+core@7.19.6:
     resolution: {integrity: sha512-wHmj6LDxVDnL+3WhXteUBaoM1aVILZODAUjg11kHqG4cOlfgMQGxw6aCgvrXrmaJR3Bn14oZhImyCPZzRpC93Q==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -504,6 +514,7 @@ packages:
   /@babel/plugin-proposal-optional-catch-binding/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-Q40HEhs9DJQyaZfUjjn6vE8Cv4GmMHCYuMGIWUnlxH6400VGxOuwWsPt4FxXxJkC/5eOzgn0z21M9gMT4MOhbw==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-catch-binding instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -515,6 +526,7 @@ packages:
   /@babel/plugin-proposal-optional-chaining/7.18.9_@babel+core@7.19.6:
     resolution: {integrity: sha512-v5nwt4IqBXihxGsW2QmCWMDS3B3bzGIk/EQVZz2ei7f3NJl8NzAJVvUmpDW5q1CRNY+Beb/k58UAH1Km1N411w==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -527,6 +539,7 @@ packages:
   /@babel/plugin-proposal-private-methods/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-nutsvktDItsNn4rpGItSNV2sz1XwS+nfU0Rg8aCx3W3NOKVzdMjJRu0O5OkgDp3ZGICSTbgRpxZoWsxoKRvbeA==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -540,6 +553,7 @@ packages:
   /@babel/plugin-proposal-private-property-in-object/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-9Rysx7FOctvT5ouj5JODjAFAkgGoudQuLPamZb0v1TGLpapdNaftzifU8NTWQm0IRjqoYypdrSmyWgkocDQ8Dw==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -555,6 +569,7 @@ packages:
   /@babel/plugin-proposal-unicode-property-regex/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-2BShG/d5yoZyXZfVePH91urL5wTG6ASZU9M4o03lKK8u8UW1y08OMttBSOADTcJrnPMpvDXRG3G8fyLh4ovs8w==}
     engines: {node: '>=4'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-unicode-property-regex instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -1944,7 +1959,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
       '@types/yargs': 15.0.14
       chalk: 4.1.2
     dev: false
@@ -1955,7 +1970,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
       '@types/yargs': 16.0.4
       chalk: 4.1.2
     dev: false
@@ -1967,7 +1982,7 @@ packages:
       '@jest/schemas': 29.0.0
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
       '@types/yargs': 17.0.13
       chalk: 4.1.2
     dev: false
@@ -2383,6 +2398,7 @@ packages:
 
   /@openzeppelin/test-helpers/0.5.16_bn.js@4.12.0:
     resolution: {integrity: sha512-T1EvspSfH1qQO/sgGlskLfYVBbqzJR23SZzYl/6B2JnT4EhThcI85UpvDk0BkLWKaDScQTabGHt4GzHW+3SfZg==}
+    deprecated: Package no longer maintained. Consider using @nomicfoundation/hardhat-chai-matchers and @nomicfoundation/hardhat-network-helpers instead.
     dependencies:
       '@openzeppelin/contract-loader': 0.6.3
       '@truffle/contract': 4.5.23
@@ -2714,7 +2730,7 @@ packages:
     peerDependencies:
       '@truffle/contract': ^4.0.0
     dependencies:
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/bdcccf7d484e09efc1ac17adf4bdf2068404103d
       '@truffle/contract': 4.5.23
       auto-bind: 4.0.0
       node-fetch: 2.6.7
@@ -2730,7 +2746,7 @@ packages:
       graphql: ^16.0.0
     dependencies:
       '@superfluid-finance/ethereum-contracts': 1.4.2_qmyv2fsdryjxfqprgnt4opxbii
-      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703
+      '@superfluid-finance/metadata': github.com/superfluid-finance/metadata/bdcccf7d484e09efc1ac17adf4bdf2068404103d
       browserify: 17.0.0
       ethers: 5.7.2
       graphql: 16.6.0
@@ -2929,13 +2945,13 @@ packages:
   /@types/bn.js/4.11.6:
     resolution: {integrity: sha512-pqr857jrp2kPuO9uRjZ3PwnJTjoQy+fcdxvBTvHm6dkmEL9q+hDD/2j/0ELOBPtPnS8LjCX0gI9nbl8lVkadpg==}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
     dev: false
 
   /@types/bn.js/5.1.1:
     resolution: {integrity: sha512-qNrYbZqMx0uJAfKnKclPh+dTwK33KfLHYqtyODwd5HnXOjnkhc4qgn3BrK6RWyGZm5+sIFE7Q7Vz6QQtJB7w7g==}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
     dev: false
 
   /@types/cacheable-request/6.0.2:
@@ -2943,14 +2959,14 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.1
       '@types/keyv': 4.2.0
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
       '@types/responselike': 1.0.0
     dev: false
 
   /@types/connect/3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
     dev: false
 
   /@types/http-cache-semantics/4.0.1:
@@ -2976,7 +2992,7 @@ packages:
   /@types/keyv/3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
     dev: false
 
   /@types/keyv/4.2.0:
@@ -2990,8 +3006,10 @@ packages:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: false
 
-  /@types/node/18.11.9:
-    resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
+  /@types/node/18.19.59:
+    resolution: {integrity: sha512-vizm2EqwV/7Zay+A6J3tGl9Lhr7CjZe2HmWS988sefiEmsyP9CeXEleho6i4hJk/8UtZAo0bWN4QPZZr83RxvQ==}
+    dependencies:
+      undici-types: 5.26.5
     dev: false
 
   /@types/parse-json/4.0.0:
@@ -3001,7 +3019,7 @@ packages:
   /@types/pbkdf2/3.1.0:
     resolution: {integrity: sha512-Cf63Rv7jCQ0LaL8tNXmEyqTHuIJxRdlS5vMh1mj5voN4+QFhVZnlZruezqpWYDiJ8UTzhP0VmeLXCmBk66YrMQ==}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
     dev: false
 
   /@types/prop-types/15.7.5:
@@ -3037,7 +3055,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
     dev: false
 
   /@types/scheduler/0.16.2:
@@ -3047,13 +3065,13 @@ packages:
   /@types/secp256k1/4.0.3:
     resolution: {integrity: sha512-Da66lEIFeIz9ltsdMZcpQvmrmmoqrfju8pm1BH8WbYjZSwUgCwXLb9C+9XYogwBITnbsSaMdVPb2ekf7TV+03w==}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
     dev: false
 
   /@types/ws/7.4.7:
     resolution: {integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
     dev: false
 
   /@types/yargs-parser/21.0.0:
@@ -6413,6 +6431,7 @@ packages:
   /is-accessor-descriptor/0.1.6:
     resolution: {integrity: sha512-e1BM1qnDbMRG3ll2U9dSK0UMHuWOs3pY3AtcFsmvwPtKL3MML/Q86i+GilLfvqEs4GW+ExB91tQ3Ig9noDIZ+A==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.7
     dependencies:
       kind-of: 3.2.2
     dev: false
@@ -6420,6 +6439,7 @@ packages:
   /is-accessor-descriptor/1.0.0:
     resolution: {integrity: sha512-m5hnHTkcVsPfqx3AKlyttIPb7J+XykHvJP2B9bZDjlhLIoEq4XoK64Vg7boZlVWYK6LUY94dYPEE7Lh0ZkZKcQ==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v1.0.1
     dependencies:
       kind-of: 6.0.3
     dev: false
@@ -6458,6 +6478,7 @@ packages:
   /is-data-descriptor/0.1.4:
     resolution: {integrity: sha512-+w9D5ulSoBNlmw9OHn3U2v51SyoCd0he+bB3xMl62oijhrspxowjU+AIcDY0N3iEJbUEkB15IlMASQsxYigvXg==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.5
     dependencies:
       kind-of: 3.2.2
     dev: false
@@ -6465,6 +6486,7 @@ packages:
   /is-data-descriptor/1.0.0:
     resolution: {integrity: sha512-jbRXy1FmtAoCjQkVmIVYwuuqDFUbaOeDjmed1tOGPrsMhtJA4rD9tkgA0F1qJ3gRFRXcHYVkdeaP50Q5rE/jLQ==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v1.0.1
     dependencies:
       kind-of: 6.0.3
     dev: false
@@ -6685,7 +6707,7 @@ packages:
     resolution: {integrity: sha512-jZCyo6iIxO1aqUxpuBlwTDMkzOAJS4a3eYz3YzgxxVQFwLeSA7Jfq5cbqCY+JLvTDrWirgusI/0KwxKMgrdf7w==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
       graceful-fs: 4.2.10
     dev: false
 
@@ -6694,7 +6716,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.5.1
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
       chalk: 4.1.2
       ci-info: 3.5.0
       graceful-fs: 4.2.10
@@ -6717,7 +6739,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 18.19.59
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
@@ -7066,6 +7088,7 @@ packages:
 
   /loupe/2.3.4:
     resolution: {integrity: sha512-OvKfgCC2Ndby6aSTREl5aCCPTNIzlDfQZvZxNUrBrihDhL3xcrYegTblhmEiCrg2kKQz4XsFIaemE5BF4ybSaQ==}
+    deprecated: Please upgrade to 2.3.7 which fixes GHSA-4q6p-r6v2-jvc5
     dependencies:
       get-func-name: 2.0.0
     dev: false
@@ -8981,11 +9004,13 @@ packages:
 
   /rimraf/2.2.8:
     resolution: {integrity: sha512-R5KMKHnPAQaZMqLOsyuyUmcIjSeDm+73eoqQpaXA7AZ22BL+6C+1mcUscgOsNd8WVlJuvlgAPsegcx7pjlV0Dg==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
     dev: false
 
   /rimraf/2.6.3:
     resolution: {integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
     dependencies:
       glob: 7.2.3
@@ -10015,6 +10040,10 @@ packages:
       xtend: 4.0.2
     dev: false
 
+  /undici-types/5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: false
+
   /unicode-canonical-property-names-ecmascript/2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
     engines: {node: '>=4'}
@@ -10931,8 +10960,8 @@ packages:
       ethereumjs-util: 6.2.1
     dev: false
 
-  github.com/superfluid-finance/metadata/aa1f9158956355fa1224cdf973b2dc972f3e5703:
-    resolution: {commit: aa1f9158956355fa1224cdf973b2dc972f3e5703, repo: git+ssh://git@github.com/superfluid-finance/metadata.git, type: git}
+  github.com/superfluid-finance/metadata/bdcccf7d484e09efc1ac17adf4bdf2068404103d:
+    resolution: {tarball: https://codeload.github.com/superfluid-finance/metadata/tar.gz/bdcccf7d484e09efc1ac17adf4bdf2068404103d}
     name: '@superfluid-finance/metadata'
-    version: 1.1.0
+    version: 1.1.7
     dev: false
