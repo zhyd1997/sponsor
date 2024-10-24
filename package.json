@@ -16,7 +16,7 @@
     "@mui/material": "^5.10.12",
     "@rainbow-me/rainbowkit": "^0.8.0",
     "@superfluid-finance/sdk-core": "^0.5.7",
-    "@types/node": "18.11.9",
+    "@types/node": "18.19.59",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "@vercel/analytics": "^0.1.3",
